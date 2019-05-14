@@ -1,0 +1,25 @@
+* Overview
+  Dotfiles
+
+* Installation
+** dotfiles
+   Clone this repo to ~/dotfiles
+** zsh
+   1. Install zsh, antigen
+   2. Create symbolic link
+      #+BEGIN_SRC
+      $ cd ~
+      $ ln -s dotfiles/.zshrc .zshrc
+      #+END_SRC
+** vim
+   1. Install vim
+   2. Install vim zenburn color theme
+   3. Create symbolic link
+      #+BEGIN_SRC
+      $ ln -s dotfiles/.vimrc .vimrc
+      #+END_SRC
+** other
+   1. Create symbolic link
+      #+BEGIN_SRC
+      $ ln -s dotfiles/.tcshrc .tcshrc
+      #+END_SRC

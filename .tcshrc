@@ -1,0 +1,22 @@
+set autolist
+set autoexpand
+set correct = cmd
+
+## Standard aliases - security
+# "-i" asks for confirmation when deleting. This is good.
+# In the "dangerous" section there are aliases for non-confirmation.
+alias rm        'rm -v -i'
+alias cp        'cp -v -i'
+alias mv        'mv -v -i'
+alias ls        'ls -FG'
+alias ll        'ls -lA'
+alias python	'/usr/local/bin/python'
+alias edwin	'mit-scheme --edit'
+alias e		'emacs -nw'
+alias py2	'python2'
+alias py3	'python3'
+
+bindkey -k up history-search-backward
+bindkey -k down history-search-forward
+bindkey ^U kill-region
+bindkey ^W backward-delete-word
