@@ -18,7 +18,7 @@ antigen theme robbyrussell
 antigen apply
 
 # personal settings
-export EDITOR='vim'
+export EDITOR='emacs'
 
 alias e='emacs -nw'
 
