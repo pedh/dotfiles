@@ -18,6 +18,12 @@
       #+BEGIN_SRC
       $ ln -s dotfiles/.vimrc .vimrc
       #+END_SRC
+** tmux
+   1. Install tmux
+   2. Create symbolic link
+      #+BEGIN_SRC
+      $ ln -s dotfiles/.tmux.conf .tmux.conf
+      #+END_SRC
 ** other
    1. Create symbolic link
       #+BEGIN_SRC
