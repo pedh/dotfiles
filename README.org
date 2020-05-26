@@ -8,24 +8,29 @@
    1. Install zsh, antigen
    2. Create symbolic link
       #+BEGIN_SRC
-      $ cd ~
-      $ ln -s dotfiles/.zshrc .zshrc
+      $ ln -s ~/dotfiles/.zshrc ~/.zshrc
       #+END_SRC
 ** vim
    1. Install vim
    2. Install vim zenburn color theme
    3. Create symbolic link
       #+BEGIN_SRC
-      $ ln -s dotfiles/.vimrc .vimrc
+      $ ln -s ~/dotfiles/.vimrc ~/.vimrc
       #+END_SRC
 ** tmux
    1. Install tmux
    2. Create symbolic link
       #+BEGIN_SRC
-      $ ln -s dotfiles/.tmux.conf .tmux.conf
+      $ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+      #+END_SRC
+** fontconfig
+   1. Create symbolic link
+      #+BEGIN_SRC
+      $ ln -s ~/dotfiles/.config/fontconfig/fonts.conf \
+        ~/.config/fontconfig/fonts.conf
       #+END_SRC
 ** other
    1. Create symbolic link
       #+BEGIN_SRC
-      $ ln -s dotfiles/.tcshrc .tcshrc
+      $ ln -s ~/dotfiles/.tcshrc ~/.tcshrc
       #+END_SRC

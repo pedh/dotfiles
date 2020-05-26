@@ -22,5 +22,5 @@ export EDITOR='emacs'
 
 alias e='emacs -nw'
 
-declare -x DISPLAY="localhost:0.0"
+declare -x DISPLAY=":0.0"
 
