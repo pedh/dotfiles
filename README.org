@@ -6,9 +6,9 @@
    Clone this repo to ~/dotfiles
 ** zsh
    1. Install zsh, antigen
-   2. Create symbolic link
+   2. Update the .zshrc config
       #+BEGIN_SRC
-      $ ln -s ~/dotfiles/.zshrc ~/.zshrc
+      $ echo "source dotfiles/.zshrc" > ~/.zshrc
       #+END_SRC
 ** vim
    1. Install vim
