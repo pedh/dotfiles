@@ -27,3 +27,4 @@ alias e='emacs -nw'
 
 declare -x DISPLAY=":0.0"
 
+export GPG_TTY=$(tty)
