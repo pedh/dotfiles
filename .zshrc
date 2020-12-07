@@ -28,3 +28,8 @@ alias e='emacs -nw'
 declare -x DISPLAY=":0.0"
 
 export GPG_TTY=$(tty)
+
+if type "go" > /dev/null; then
+    export GOPATH=$(go env GOPATH)
+    export PATH=$PATH:$GOPATH/bin
+fi
