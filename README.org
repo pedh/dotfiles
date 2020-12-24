@@ -4,11 +4,17 @@
 * Installation
 ** dotfiles
    Clone this repo to ~/dotfiles
+** dircolors
+   1. Install dircolors
+   2. Create symbolic link
+      #+begin_src
+      $ ln -s ~/dotfiles/.dircolors ~/.dircolors
+      #+end_src
 ** zsh
    1. Install zsh, antigen
-   2. Create symbolic link
+   2. Update the .zshrc config
       #+BEGIN_SRC
-      $ ln -s ~/dotfiles/.zshrc ~/.zshrc
+      $ echo "source dotfiles/.zshrc" > ~/.zshrc
       #+END_SRC
 ** vim
    1. Install vim

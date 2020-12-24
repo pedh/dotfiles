@@ -33,3 +33,12 @@ if type "go" > /dev/null; then
     export GOPATH=$(go env GOPATH)
     export PATH=$PATH:$GOPATH/bin
 fi
+
+if type "gdircolors" > /dev/null; then
+    alias dircolors='gdircolors'
+fi
+
+if type "dircolors" > /dev/null; then
+    eval $( dircolors -b $HOME/.dircolors )
+fi
+
