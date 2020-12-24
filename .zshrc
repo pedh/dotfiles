@@ -7,11 +7,15 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle pip
 antigen bundle command-not-found
+antigen bundle autojump
+antigen bundle httpie
+antigen bundle fzf
+antigen bundle gnu-utils
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-# Auto suggestions bubdle.
+# Auto suggestions bundle.
 antigen bundle zsh-users/zsh-autosuggestions
 
 # Load the theme.
@@ -21,24 +25,17 @@ antigen theme robbyrussell
 antigen apply
 
 # personal settings
-export EDITOR='emacs'
-
-alias e='emacs -nw'
-
-declare -x DISPLAY=":0.0"
-
+alias e='emacsclient -nw'
+export EDITOR='emacsclient -nw'
+export ALTERNATE_EDITOR='vim'
+export DISPLAY=":0.0"
 export GPG_TTY=$(tty)
+export BAT_THEME=zenburn
 
-if type "go" > /dev/null; then
-    export GOPATH=$(go env GOPATH)
-    export PATH=$PATH:$GOPATH/bin
+fpath=("/usr/local/share/zsh/site-functions" $fpath)
+export FPATH
+
+if type gdircolors &>/dev/null; then
+    dircolors=gdircolors
 fi
-
-if type "gdircolors" > /dev/null; then
-    alias dircolors='gdircolors'
-fi
-
-if type "dircolors" > /dev/null; then
-    eval $( dircolors -b $HOME/.dircolors )
-fi
-
+eval $( dircolors -b $HOME/.dircolors )

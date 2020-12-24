@@ -4,6 +4,12 @@
 * Installation
 ** dotfiles
    Clone this repo to ~/dotfiles
+** brew (macos only)
+   1. Install homebrew
+   2. Run brew.sh
+      #+begin_src
+      $ ./brew.sh
+      #+end_src
 ** dircolors
    1. Install dircolors
    2. Create symbolic link
@@ -14,15 +20,21 @@
    1. Install zsh, antigen
    2. Update the .zshrc config
       #+BEGIN_SRC
-      $ echo "source dotfiles/.zshrc" > ~/.zshrc
+      $ echo "source ~/dotfiles/.zshrc" > ~/.zshrc
       #+END_SRC
 ** vim
    1. Install vim
-   2. Install vim zenburn color theme
-   3. Create symbolic link
+   2. Create symbolic link
       #+BEGIN_SRC
+      $ ln -s ~/dotfiles/.vim ~/.vim
       $ ln -s ~/dotfiles/.vimrc ~/.vimrc
       #+END_SRC
+** nvim
+   1. Install nvim
+   2. Create symbolic link
+      #+begin_src
+      $ ln -s ~/dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
+      #+end_src
 ** tmux
    1. Install tmux
    2. Create symbolic link

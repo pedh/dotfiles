@@ -1,2 +1,4 @@
 *~
 *.zwc
+.vim/.*
+.DS_Store
