@@ -1,28 +1,51 @@
-source /usr/local/share/antigen/antigen.zsh
+source ~/.zinit/bin/zinit.zsh
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+setopt promptsubst
+setopt histignorespace
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle pip
-antigen bundle command-not-found
-antigen bundle autojump
-antigen bundle httpie
-antigen bundle fzf
-antigen bundle gnu-utils
+# set LS_COLORS for gnu ls
+if [[ -f .LS_COLORS ]]; then
+    source .LS_COLORS
+fi
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
+export PATH="/usr/local/sbin:$PATH"
 
-# Auto suggestions bundle.
-antigen bundle zsh-users/zsh-autosuggestions
+zinit wait lucid for \
+      OMZL::git.zsh \
+      OMZL::directories.zsh \
+      OMZL::key-bindings.zsh \
+      OMZL::completion.zsh \
+      OMZL::theme-and-appearance.zsh \
+      OMZP::git \
+      OMZP::pip \
+      OMZP::command-not-found \
+      OMZP::autojump \
+      OMZP::httpie \
+      OMZP::fzf \
+      OMZP::gnu-utils
 
-# Load the theme.
-antigen theme robbyrussell
+PS1="READY >" # provide a simple prompt till the theme loads
 
-# Tell Antigen that you're done.
-antigen apply
+zinit wait'!' lucid for \
+      OMZT::robbyrussell
+
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma/fast-syntax-highlighting \
+ blockf \
+ atinit"
+     zstyle ':completion:*' menu select
+     zstyle ':completion:*' extra-verbose yes
+     zstyle ':completion:*:descriptions' format '$fg[yellow]%B--- %d%b'
+     zstyle ':completion:*:messages' format '%d'
+     zstyle ':completion:*:warnings' format '$fg[red]No matches for:$reset_color %d'
+     zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+     zstyle ':completion:*' group-name ''
+" \
+ atload'zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"' \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
 
 # personal settings
 alias e='emacsclient -nw'
@@ -34,8 +57,3 @@ export BAT_THEME=zenburn
 
 fpath=("/usr/local/share/zsh/site-functions" $fpath)
 export FPATH
-
-if type gdircolors &>/dev/null; then
-    dircolors=gdircolors
-fi
-eval $( dircolors -b $HOME/.dircolors )

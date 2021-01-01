@@ -12,12 +12,13 @@
       #+end_src
 ** dircolors
    1. Install dircolors
-   2. Create symbolic link
+   2. Generate .LS_COLORS
       #+begin_src
-      $ ln -s ~/dotfiles/.dircolors ~/.dircolors
+      # possibly gdircolors for OS X
+      $ dircolors -b .dircolors > ~/.LS_COLORS
       #+end_src
 ** zsh
-   1. Install zsh, antigen
+   1. Install zsh, zinit
    2. Update the .zshrc config
       #+BEGIN_SRC
       $ echo "source ~/dotfiles/.zshrc" > ~/.zshrc

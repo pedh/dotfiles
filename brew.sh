@@ -32,9 +32,9 @@ brew install gnu-which
 brew install bash
 brew install bash-completion2
 
-# Install zsh and antigen
+# Install zsh and zinit
 brew install zsh
-brew install antigen
+brew install zinit
 
 # Install network tools
 brew install wget
