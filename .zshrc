@@ -1,3 +1,4 @@
+
 source ~/.zinit/bin/zinit.zsh
 
 setopt promptsubst
@@ -58,3 +59,10 @@ export BAT_THEME=zenburn
 
 fpath=("/usr/local/share/zsh/site-functions" $fpath)
 export FPATH
+
+backward-kill-dir () {
+    local WORDCHARS='*?_-.[]~=&;!#$%^(){}<>/'
+    zle backward-kill-word
+}
+zle -N backward-kill-dir
+bindkey '^W' backward-kill-dir
