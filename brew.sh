@@ -20,6 +20,7 @@ brew install findutils
 brew install gnu-sed
 # Some more GNU utils
 brew install diffutils
+brew install inetutils
 brew install gnutls
 brew install gawk
 brew install gnu-tar

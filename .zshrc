@@ -1,4 +1,3 @@
-
 source ~/.zinit/bin/zinit.zsh
 
 setopt promptsubst
