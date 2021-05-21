@@ -1,0 +1,25 @@
+<mtTheme>
+  <id>zenburn-material-theme</id>
+  <editorColorsScheme>Zenburn</editorColorsScheme>
+  <dark>true</dark>
+  <name>Zenburn</name>
+  <colors>
+    <color id="background" value="3f3f3fff"/>
+    <color id="foreground" value="989890ff"/>
+    <color id="text" value="dcdcccff"/>
+    <color id="highlight" value="425b67ff"/>
+    <color id="selectionBackground" value="5f5f5fff"/>
+    <color id="selectionForeground" value="fffffdff"/>
+    <color id="button" value="2e3c43ff"/>
+    <color id="secondaryBackground" value="32424aff"/>
+    <color id="disabled" value="415967ff"/>
+    <color id="contrast" value="1e272cff"/>
+    <color id="tableSelected" value="314549ff"/>
+    <color id="secondBorder" value="2a373eff"/>
+    <color id="treeSelection" value="546e7a50"/>
+    <color id="notifications" value="1e272cff"/>
+    <color id="accent" value="009688ff"/>
+    <color id="excluded" value="2e3c43ff"/>
+  </colors>
+  <themeId>zenburn-material-theme</themeId>
+</mtTheme>
