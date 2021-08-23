@@ -23,7 +23,8 @@ zinit wait lucid for \
       OMZP::autojump \
       OMZP::httpie \
       OMZP::fzf \
-      OMZP::gnu-utils
+      OMZP::gnu-utils \
+      OMZP::kubectl
 
 PS1="READY >" # provide a simple prompt till the theme loads
 
