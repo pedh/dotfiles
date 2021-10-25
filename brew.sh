@@ -44,6 +44,8 @@ brew install --cask wireshark
 brew install --cask postman
 brew install httpie
 brew install aria2
+brew install tcpdump
+brew install iperf3
 
 # Install GnuPG to enable PGP-signing commits.
 brew install gnupg
@@ -117,7 +119,6 @@ brew tap homebrew/command-not-found
 # Document tools
 brew install graphviz
 brew install plantuml
-brew install --cask drawio
 brew install --cask calibre
 brew install --cask mactex
 
@@ -139,12 +140,28 @@ brew install mycli
 brew install mas
 brew install pgcli
 brew install the_silver_searcher
+brew install lsusb
+
+# Multimedia
+brew install --cask kodi
+
+# Security
+brew install --cask keepassxc
 
 # Python packages
 brew install python
 brew install ipython
 brew install anaconda
 brew install ansible
+brew install numpy
+
+# Golang packages
+brew install go
+
+# Kubernetes cli packages
+brew install kubernetes-cli
+brew install krew
+brew install kubectx
 
 # Remove outdated versions from the cellar.
 brew cleanup

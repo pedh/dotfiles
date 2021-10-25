@@ -42,7 +42,7 @@
       #+BEGIN_SRC
       $ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
       #+END_SRC
-** fontconfig
+** fontconfig (linux only)
    1. Create symbolic link
       #+BEGIN_SRC
       $ ln -s ~/dotfiles/.config/fontconfig/fonts.conf \
@@ -52,4 +52,9 @@
    1. Create symbolic link
       #+BEGIN_SRC
       $ ln -s ~/dotfiles/.tcshrc ~/.tcshrc
+      #+END_SRC
+   2. Install kubernetes krew plugins
+      #+BEGIN_SRC
+      $ kubectl krew index add awesome-kubectl-plugins https://github.com/ishantanu/awesome-kubectl-plugins.git
+      $ kubectl krew install < ~/dotfiles/.krew-list.txt
       #+END_SRC
