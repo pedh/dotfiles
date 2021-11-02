@@ -33,7 +33,7 @@ zinit wait'!' lucid for \
 
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    zdharma/fast-syntax-highlighting \
+    zdharma-continuum/fast-syntax-highlighting \
  blockf \
  atinit"
      zstyle ':completion:*' menu select
