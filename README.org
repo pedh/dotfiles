@@ -38,9 +38,12 @@
       #+end_src
 ** tmux
    1. Install tmux
-   2. Create symbolic link
+   2. Install tmux config from @gpakosz
       #+BEGIN_SRC
-      $ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+      $ cd ~
+      $ git clone https://github.com/gpakosz/.tmux.git
+      $ ln -s -f .tmux/.tmux.conf
+      $ cp .tmux/.tmux.conf.local .
       #+END_SRC
 ** fontconfig (linux only)
    1. Create symbolic link
