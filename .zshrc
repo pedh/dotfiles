@@ -28,8 +28,8 @@ zinit wait lucid for \
 
 PS1="READY >" # provide a simple prompt till the theme loads
 
-zinit wait'!' lucid for \
-      OMZT::robbyrussell
+zinit ice depth"1"
+zinit light romkatv/powerlevel10k
 
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \

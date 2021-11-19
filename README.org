@@ -18,10 +18,14 @@
       $ dircolors -b .dircolors > ~/.LS_COLORS
       #+end_src
 ** zsh
-   1. Install zsh, zinit
+   1. Install zsh, zinit, Meslo Nerd Font
    2. Update the .zshrc config
       #+BEGIN_SRC
       $ echo "source ~/dotfiles/.zshrc" > ~/.zshrc
+      #+END_SRC
+   3. Configure powerlevel10k theme
+      #+BEGIN_SRC
+      $ p10k configure
       #+END_SRC
 ** vim
    1. Install vim
