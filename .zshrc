@@ -62,7 +62,7 @@ alias kns="kubens"
 export EDITOR='emacsclient -nw'
 export ALTERNATE_EDITOR='vim'
 export DISPLAY=":0.0"
-export GPG_TTY=$(tty)
+export GPG_TTY=$TTY
 export BAT_THEME=zenburn
 
 fpath=("/usr/local/share/zsh/site-functions" $fpath)
