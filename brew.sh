@@ -98,6 +98,7 @@ brew install ack
 brew install exiv2
 brew install git
 brew install git-lfs
+brew install git-extras
 brew install gs
 brew install imagemagick
 brew install lua
@@ -141,6 +142,7 @@ brew install mas
 brew install pgcli
 brew install the_silver_searcher
 brew install lsusb
+brew install thefuck
 
 # Multimedia
 brew install --cask kodi

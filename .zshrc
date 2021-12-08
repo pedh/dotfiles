@@ -59,6 +59,9 @@ alias glf="git rev-list --objects --all |
   $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest"
 alias kx="kubectx"
 alias kns="kubens"
+if type "thefuck" > /dev/null; then
+    eval $(thefuck --alias f)
+fi
 export EDITOR='emacsclient -nw'
 export ALTERNATE_EDITOR='vim'
 export DISPLAY=":0.0"
