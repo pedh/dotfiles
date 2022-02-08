@@ -45,7 +45,9 @@ brew install --cask postman
 brew install httpie
 brew install aria2
 brew install tcpdump
+brew install termshark
 brew install iperf3
+brew install proxychains-ng
 
 # Install GnuPG to enable PGP-signing commits.
 brew install gnupg
