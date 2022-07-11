@@ -21,7 +21,6 @@ zinit wait lucid for \
       OMZP::pyenv \
       OMZP::command-not-found \
       OMZP::autojump \
-      OMZP::httpie \
       OMZP::fzf \
       OMZP::gnu-utils \
       OMZP::kubectl
