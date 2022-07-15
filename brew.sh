@@ -137,6 +137,8 @@ brew install fd
 brew install fzf
 brew install asciinema
 brew install htop
+brew install gotop
+brew install btop
 brew install tldr
 brew install magic-wormhole
 brew install mycli
