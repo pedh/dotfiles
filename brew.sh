@@ -48,6 +48,7 @@ brew install tcpdump
 brew install termshark
 brew install iperf3
 brew install proxychains-ng
+brew install mtr
 
 # Install GnuPG to enable PGP-signing commits.
 brew install gnupg
