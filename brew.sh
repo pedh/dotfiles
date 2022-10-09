@@ -125,6 +125,7 @@ brew install graphviz
 brew install plantuml
 brew install --cask calibre
 brew install --cask mactex
+brew install --cask inkscape
 
 # Editors
 brew install --cask emacs
