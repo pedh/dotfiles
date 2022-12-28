@@ -1,5 +1,4 @@
 access-matrix
-awesome-kubectl-plugins/node-shell
 capture
 deprecations
 doctor
@@ -11,6 +10,7 @@ konfig
 krew
 kubesec-scan
 neat
+node-shell
 outdated
 preflight
 resource-capacity
