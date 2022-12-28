@@ -170,6 +170,7 @@ brew install go
 brew install kubernetes-cli
 brew install krew
 brew install kubectx
+brew install helm
 
 # Remove outdated versions from the cellar.
 brew cleanup
