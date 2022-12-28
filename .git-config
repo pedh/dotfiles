@@ -1,0 +1,23 @@
+[user]
+	signingkey = 2128C41635AB5896
+	name = pedh
+	email = hcn518@gmail.com
+[gpg]
+	program = gpg
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[merge]
+	tool = bc
+[pull]
+	rebase = false
+[mergetool "bc3"]
+	trustExitCode = true
+[url "git@gitlab.alibaba-inc.com:"]
+	insteadOf = https://gitlab.alibaba-inc.com/
+[commit]
+	gpgsign = true
+[mergetool "bc"]
+	trustExitCode = true

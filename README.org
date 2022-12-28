@@ -10,6 +10,11 @@
       #+begin_src
       $ ./brew.sh
       #+end_src
+** git config
+   1. Create symbolic link
+      #+begin_src
+      $ ln -s ~/dotfiles/.git-config ~/.gitconfig
+      #+end_src
 ** dircolors
    1. Install dircolors
    2. Generate .LS_COLORS
