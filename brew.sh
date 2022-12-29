@@ -103,6 +103,7 @@ brew install git
 brew install git-lfs
 brew install git-extras
 brew install gitup
+brew install global
 brew install gs
 brew install imagemagick
 brew install lua
