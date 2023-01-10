@@ -152,6 +152,7 @@ brew install pgcli
 brew install the_silver_searcher
 brew install lsusb
 brew install thefuck
+brew install shellcheck
 
 # Multimedia
 brew install --cask kodi
@@ -174,6 +175,7 @@ brew install kubernetes-cli
 brew install krew
 brew install kubectx
 brew install helm
+brew install kubebuilder
 
 # Remove outdated versions from the cellar.
 brew cleanup
