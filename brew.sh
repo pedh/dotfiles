@@ -95,6 +95,7 @@ brew install xpdf
 brew install xz
 brew install radare2
 brew install --cask cutter
+brew install flamegraph
 
 # Install other useful binaries.
 brew install ack
