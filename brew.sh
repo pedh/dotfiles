@@ -155,6 +155,7 @@ brew install lsusb
 brew install thefuck
 brew install shellcheck
 brew install jq
+brew install cloc
 
 # Multimedia
 brew install --cask kodi
