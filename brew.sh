@@ -173,6 +173,9 @@ brew install numpy
 # Golang packages
 brew install go
 
+# Rust packages
+brew install rustup
+
 # Kubernetes cli packages
 brew install kubernetes-cli
 brew install krew
