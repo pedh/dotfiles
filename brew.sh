@@ -29,6 +29,7 @@ brew install make
 brew install wdiff
 brew install gnu-indent
 brew install gnu-which
+brew install man-db
 # Install a modern version of Bash.
 brew install bash
 brew install bash-completion2
@@ -49,6 +50,7 @@ brew install termshark
 brew install iperf3
 brew install proxychains-ng
 brew install mtr
+brew install ipinfo-cli
 
 # Install GnuPG to enable PGP-signing commits.
 brew install gnupg

@@ -8,7 +8,7 @@ if [[ -f .LS_COLORS ]]; then
     source .LS_COLORS
 fi
 
-export PATH="/usr/local/sbin:/opt/homebrew/bin:$PATH"
+export PATH="/usr/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
 zinit wait lucid for \
       OMZL::git.zsh \
