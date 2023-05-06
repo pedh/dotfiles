@@ -33,20 +33,20 @@ zinit light romkatv/powerlevel10k
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
- blockf \
  atinit"
-     zstyle ':completion:*' menu select
      zstyle ':completion:*' extra-verbose yes
-     zstyle ':completion:*:descriptions' format '$fg[yellow]%B--- %d%b'
+     zstyle ':completion:*' completer _extensions _complete _approximate
+     zstyle ':completion:*:descriptions' format '%F{yellow}%B--- %d%b%f'
      zstyle ':completion:*:messages' format '%d'
-     zstyle ':completion:*:warnings' format '$fg[red]No matches for:$reset_color %d'
+     zstyle ':completion:*:warnings' format '%F{red}No matches for:%f %d'
      zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
      zstyle ':completion:*' group-name ''
+     zstyle ':completion:*' list-colors \${(s.:.)LS_COLORS}
 " \
- atload'zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"' \
     zsh-users/zsh-completions \
  atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-autosuggestions \
+    wfxr/forgit
 
 # personal settings
 alias e='emacsclient -nw'
