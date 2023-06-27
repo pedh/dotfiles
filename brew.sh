@@ -175,6 +175,7 @@ brew install numpy
 
 # Golang packages
 brew install go
+brew install protobuf
 
 # Rust packages
 brew install rustup
