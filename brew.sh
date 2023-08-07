@@ -134,7 +134,9 @@ brew install --cask mactex
 brew install --cask inkscape
 
 # Editors
-brew install --cask emacs
+brew tap railwaycat/emacsmacport
+brew install emacs-mac --with-native-compilation
+ln -sf $(brew --prefix)/opt/emacs-mac/Emacs.app /Applications/Emacs.app
 brew install neovim
 brew install --cask vimr
 
