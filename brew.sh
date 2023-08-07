@@ -154,6 +154,7 @@ brew install mycli
 brew install mas
 brew install pgcli
 brew install the_silver_searcher
+brew install ripgrep
 brew install lsusb
 brew install thefuck
 brew install shellcheck
