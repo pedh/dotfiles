@@ -1,4 +1,5 @@
 *~
 *.zwc
 .vim/.*
+.vim/swaps
 .DS_Store
