@@ -187,6 +187,9 @@ brew install gops
 # Rust packages
 brew install rustup
 
+# Common lisp packages
+brew install sbcl
+
 # Kubernetes cli packages
 brew install kubernetes-cli
 brew install krew
