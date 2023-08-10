@@ -170,6 +170,7 @@ brew install --cask kodi
 
 # Security
 brew install --cask keepassxc
+brew install pass
 
 # Python packages
 brew install python
