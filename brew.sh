@@ -122,6 +122,7 @@ brew install vbindiff
 brew install zopfli
 brew install tmux
 brew install --cask cmake
+brew install llvm
 
 # Homebrew
 brew tap homebrew/command-not-found
