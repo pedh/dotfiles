@@ -135,6 +135,7 @@ brew install plantuml
 brew install --cask calibre
 brew install --cask mactex
 brew install --cask inkscape
+brew install pandoc
 
 # Editors
 brew tap railwaycat/emacsmacport
