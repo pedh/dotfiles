@@ -187,6 +187,9 @@ brew install gops
 # Rust packages
 brew install rustup
 
+# Haskell packages
+brew install ghcup
+
 # Common lisp packages
 brew install sbcl
 
