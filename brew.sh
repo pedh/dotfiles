@@ -123,6 +123,7 @@ brew install zopfli
 brew install tmux
 brew install --cask cmake
 brew install llvm
+brew install bear
 
 # Homebrew
 brew tap homebrew/command-not-found
