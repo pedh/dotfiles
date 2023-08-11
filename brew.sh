@@ -124,6 +124,7 @@ brew install tmux
 brew install --cask cmake
 brew install llvm
 brew install bear
+brew install mysticlgbt/made/mac-linux-kdk
 
 # Homebrew
 brew tap homebrew/command-not-found
