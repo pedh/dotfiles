@@ -181,6 +181,9 @@ brew install ipython
 brew install anaconda
 brew install ansible
 brew install numpy
+brew install python-lsp-server
+brew install pyenv
+brew install poetry
 
 # Golang packages
 brew install go
