@@ -29,7 +29,6 @@ zinit wait lucid for \
       OMZL::theme-and-appearance.zsh \
       OMZP::git \
       OMZP::pip \
-      OMZP::pyenv \
       OMZP::command-not-found \
       OMZP::autojump \
       OMZP::fzf \

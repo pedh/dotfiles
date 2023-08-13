@@ -97,6 +97,7 @@ brew install xz
 brew install radare2
 brew install --cask cutter
 brew install flamegraph
+brew install pngpaste
 
 # Install other useful binaries.
 brew install ack
@@ -125,6 +126,7 @@ brew install --cask cmake
 brew install llvm
 brew install bear
 brew install mysticlgbt/made/mac-linux-kdk
+brew install editorconfig
 
 # Homebrew
 brew tap homebrew/command-not-found
@@ -139,8 +141,7 @@ brew install pandoc
 
 # Editors
 brew tap railwaycat/emacsmacport
-brew install emacs-mac --with-native-compilation
-ln -sf $(brew --prefix)/opt/emacs-mac/Emacs.app /Applications/Emacs.app
+brew install --cask emacs-mac
 brew install neovim
 brew install --cask vimr
 
@@ -184,6 +185,8 @@ brew install numpy
 brew install python-lsp-server
 brew install pyenv
 brew install poetry
+brew install pipenv
+
 
 # Golang packages
 brew install go
@@ -198,6 +201,12 @@ brew install ghcup
 
 # Common lisp packages
 brew install sbcl
+
+# Node.js packages
+brew install npm
+
+# Web packages
+brew install stylelint
 
 # Kubernetes cli packages
 brew install kubernetes-cli
