@@ -23,7 +23,7 @@
       $ dircolors -b .dircolors > ~/.LS_COLORS
       #+end_src
 ** zsh
-   1. Install zsh, zinit, Meslo Nerd Font
+   1. Install Meslo Nerd Font
    2. Update the .zshrc config
       #+BEGIN_SRC
       $ echo "source ~/dotfiles/.zshrc" > ~/.zshrc

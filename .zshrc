@@ -1,4 +1,4 @@
-source ~/.zinit/bin/zinit.zsh
+source /opt/homebrew/opt/zinit/zinit.zsh
 
 setopt promptsubst
 setopt histignorespace
