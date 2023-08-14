@@ -54,6 +54,16 @@
       $ ln -s -f .tmux/.tmux.conf
       $ cp .tmux/.tmux.conf.local .
       #+END_SRC
+** email
+   1. Install isync, mu
+   2. Restore ~/.password-store
+   3. Create symbolic link
+      #+begin_src
+      $ ln -s ~/dotfiles/.mbsyncrc ~/.mbsyncrc
+      $ mbsync -V --all
+      $ mu init --maildir ~/.mail --my-address hcn518@gmail.com
+      $ mu index
+      #+end_src
 ** fontconfig (linux only)
    1. Create symbolic link
       #+BEGIN_SRC

@@ -1,0 +1,43 @@
+# aliyun mail settings
+IMAPStore aliyun-remote
+Host imap.aliyun.com
+SSLType IMAPS
+AuthMechs LOGIN
+User hcn518@aliyun.com
+PassCmd "pass mail/aliyun | head -n1"
+
+MaildirStore aliyun-local
+Path ~/.mail/aliyun/
+Inbox ~/.mail/aliyun/INBOX
+Subfolders Verbatim
+
+Channel aliyun
+Far :aliyun-remote:
+Near :aliyun-local:
+Create Both
+Expunge Both
+Patterns *
+SyncState *
+
+# gmail settings
+IMAPStore gmail-remote
+Host imap.gmail.com
+SSLType IMAPS
+AuthMechs LOGIN
+User hcn518@gmail.com
+PassCmd "pass mail/gmail | head -n1"
+
+MaildirStore gmail-local
+Path ~/.mail/gmail/
+Inbox ~/.mail/gmail/INBOX
+Subfolders Verbatim
+
+Channel gmail
+Far :gmail-remote:
+Near :gmail-local:
+Create Both
+Expunge Both
+# Exclude everything under the internal [Gmail] folder, except the interesting folders
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+SyncState *
+
