@@ -127,6 +127,7 @@ brew install llvm
 brew install bear
 brew install mysticlgbt/made/mac-linux-kdk
 brew install editorconfig
+brew install languagetool
 
 # Homebrew
 brew tap homebrew/command-not-found

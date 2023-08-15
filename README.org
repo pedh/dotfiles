@@ -32,6 +32,14 @@
       #+BEGIN_SRC
       $ p10k configure
       #+END_SRC
+** emacs
+   1. Install [[https://github.com/doomemacs/doomemacs][Doom Emacs]]
+   2. Create symbolic link
+      #+BEGIN_SRC
+      $ ln -s ~/dotfiles/.config/doom ~/.config/doom
+      #+END_SRC
+   3. Install DejaVu Sans font.
+   4. Restore ~/.password-store, ~/notes/org and etc.
 ** vim
    1. Install vim
    2. Create symbolic link
