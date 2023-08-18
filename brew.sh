@@ -128,6 +128,7 @@ brew install bear
 brew install mysticlgbt/made/mac-linux-kdk
 brew install editorconfig
 brew install languagetool
+brew install smartmontools
 
 # Homebrew
 brew tap homebrew/command-not-found
