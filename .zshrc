@@ -1,4 +1,12 @@
-source /opt/homebrew/opt/zinit/zinit.zsh
+# auto detect homebrew prefix
+if [[ x"$(/usr/bin/uname -m)" == x"arm64" ]]
+then
+  HOMEBREW_PREFIX="/opt/homebrew"
+else
+  HOMEBREW_PREFIX="/usr/local"
+fi
+
+source ${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh
 
 setopt promptsubst
 setopt histignorespace
@@ -11,8 +19,8 @@ fi
 # set extra paths
 typeset -U path
 path=(/usr/local/sbin
-      /opt/homebrew/bin
-      /opt/homebrew/sbin
+      ${HOMEBREW_PREFIX}/bin
+      ${HOMEBREW_PREFIX}/sbin
       ${HOME}/.config/emacs/bin
       ${HOME}/go/bin
       ${HOME}/.krew/bin
