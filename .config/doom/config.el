@@ -124,6 +124,16 @@
       (set-face-attribute 'org-level-4 nil :height 1.0))))
 (add-hook 'writeroom-mode-hook #'my-org-faces)
 
+;; org-roam settings
+(after! org-roam
+  (setq!
+    org-roam-dailies-directory "journals/"
+    org-roam-capture-templates
+    '(("d" "default" plain
+       "%?" :target
+       (file+head "pages/${slug}.org" "#+title: ${title}\n")
+       :unnarrowed t))))
+
 ;; copilot settings
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
