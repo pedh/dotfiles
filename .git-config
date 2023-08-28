@@ -15,8 +15,6 @@
 	rebase = false
 [mergetool "bc3"]
 	trustExitCode = true
-[url "git@gitlab.alibaba-inc.com:"]
-	insteadOf = https://gitlab.alibaba-inc.com/
 [commit]
 	gpgsign = true
 [mergetool "bc"]
