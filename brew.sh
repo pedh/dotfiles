@@ -47,7 +47,6 @@ brew install --cask visual-studio-code
 brew tap railwaycat/emacsmacport
 brew install --cask emacs-mac
 brew install neovim
-brew install --cask vimr
 
 # Awesome MacOS applications
 brew install --cask scroll-reverser
