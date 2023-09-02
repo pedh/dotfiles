@@ -236,6 +236,7 @@ brew install --cask kodi
 brew install --cask krita
 brew install --cask wacom-tablet
 brew install --cask listen1
+brew install --cask transmission
 
 # Remove outdated versions from the cellar.
 brew cleanup
