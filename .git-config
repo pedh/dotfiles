@@ -19,3 +19,8 @@
 	gpgsign = true
 [mergetool "bc"]
 	trustExitCode = true
+[tag]
+	forceSignAnnotated = true
+[push]
+	default = current
+	autoSetupRemote = true

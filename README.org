@@ -3,9 +3,12 @@
 
 * Installation
 ** dotfiles
-   Clone this repo to ~/dotfiles
+   Clone this repo to ~/.dotfiles
 ** brew (macos only)
    1. Install homebrew
+      #+begin_src
+      $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      #+end_src
    2. Run brew.sh
       #+begin_src
       $ ./brew.sh
@@ -13,78 +16,92 @@
 ** git config
    1. Create symbolic link
       #+begin_src
-      $ ln -s ~/dotfiles/.git-config ~/.gitconfig
+      $ ln -sf ~/.dotfiles/.git-config ~/.gitconfig
       #+end_src
 ** dircolors
    1. Install dircolors
    2. Generate .LS_COLORS
       #+begin_src
       # possibly gdircolors for OS X
-      $ dircolors -b .dircolors > ~/.LS_COLORS
+      $ dircolors -b ~/.dotfiles/.dircolors > ~/.LS_COLORS
       #+end_src
 ** zsh
-   1. Install Meslo Nerd Font
+   1. Install Meslo LGS Nerd Font
    2. Update the .zshrc config
-      #+BEGIN_SRC
-      $ echo "source ~/dotfiles/.zshrc" > ~/.zshrc
-      #+END_SRC
+      #+begin_src
+      $ echo "source ~/.dotfiles/.zshrc" > ~/.zshrc
+      #+end_src
    3. Configure powerlevel10k theme
-      #+BEGIN_SRC
+      #+begin_src
       $ p10k configure
-      #+END_SRC
+      #+end_src
 ** emacs
    1. Install [[https://github.com/doomemacs/doomemacs][Doom Emacs]]
+      #+begin_src
+      $ git clone --depth 1 https://github.com/doomemacs/doomemacs \
+          ~/.config/emacs
+      $ ~/.config/emacs/bin/doom install --no-config
+      #+end_src
    2. Create symbolic link
-      #+BEGIN_SRC
-      $ ln -s ~/dotfiles/.config/doom ~/.config/doom
-      #+END_SRC
+      #+begin_src
+      $ ln -sf ~/.dotfiles/.config/doom ~/.config/
+      #+end_src
    3. Install DejaVu Sans font.
+   4. Sync the doom config
+      #+begin_src
+      $ doom sync
+      #+end_src
    4. Restore ~/.password-store, ~/notes/org and etc.
 ** vim
    1. Install vim
    2. Create symbolic link
-      #+BEGIN_SRC
-      $ ln -s ~/dotfiles/.vim ~/.vim
-      $ ln -s ~/dotfiles/.vimrc ~/.vimrc
-      #+END_SRC
+      #+begin_src
+      $ ln -sf ~/.dotfiles/.vim ~/
+      $ ln -sf ~/.dotfiles/.vimrc ~/
+      #+end_src
 ** nvim
    1. Install nvim
    2. Create symbolic link
       #+begin_src
-      $ ln -s ~/dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
+      $ ln -sf ~/.dotfiles/.config/nvim ~/.config/
       #+end_src
 ** tmux
    1. Install tmux
    2. Install tmux config from @gpakosz
-      #+BEGIN_SRC
-      $ cd ~
-      $ git clone https://github.com/gpakosz/.tmux.git
-      $ ln -s -f .tmux/.tmux.conf
-      $ cp .tmux/.tmux.conf.local .
-      #+END_SRC
+      #+begin_src
+      $ git clone https://github.com/gpakosz/.tmux.git ~/.tmux
+      $ ln -sf ~/.tmux/.tmux.conf ~/
+      $ cp ~/.tmux/.tmux.conf.local ~/
+      #+end_src
+** gpg
+   1. Create symbolic link
+      #+begin_src
+      $ ln -sf ~/.dotfiles/.gnupg/gpg.conf ~/.gnupg/
+      $ ln -sf ~/.dotfiles/.gnupg/gpg-agent.conf ~/.gnupg/
+      #+end_src
 ** email
    1. Install isync, mu
    2. Restore ~/.password-store
    3. Create symbolic link
       #+begin_src
-      $ ln -s ~/dotfiles/.mbsyncrc ~/.mbsyncrc
+      $ ln -sf ~/.dotfiles/.mbsyncrc ~/
       $ mbsync -V --all
       $ mu init --maildir ~/.mail --my-address hcn518@gmail.com
       $ mu index
       #+end_src
 ** fontconfig (linux only)
    1. Create symbolic link
-      #+BEGIN_SRC
-      $ ln -s ~/dotfiles/.config/fontconfig/fonts.conf \
+      #+begin_src
+      $ ln -sf ~/.dotfiles/.config/fontconfig/fonts.conf \
         ~/.config/fontconfig/fonts.conf
-      #+END_SRC
+      #+end_src
 ** other
    1. Create symbolic link
-      #+BEGIN_SRC
-      $ ln -s ~/dotfiles/.tcshrc ~/.tcshrc
-      #+END_SRC
+      #+begin_src
+      $ ln -sf ~/.dotfiles/.tcshrc ~/
+      #+end_src
    2. Install kubernetes krew plugins
-      #+BEGIN_SRC
+      #+begin_src
       $ kubectl krew index add awesome-kubectl-plugins https://github.com/ishantanu/awesome-kubectl-plugins.git
-      $ kubectl krew install < ~/dotfiles/.krew-list.txt
-      #+END_SRC
+      $ kubectl krew install < ~/.dotfiles/.krew-list.txt
+      #+end_src

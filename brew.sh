@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+set -x
+
 # Make sure we’re using the latest Homebrew.
 brew update
 
@@ -46,7 +49,6 @@ brew install zinit
 # Install essential applications
 brew install --cask iterm2
 brew install --cask google-chrome
-brew install --cask visual-studio-code
 
 # Editors
 brew tap railwaycat/emacsmacport
@@ -59,6 +61,9 @@ brew install --cask scroll-reverser
 brew install --cask hiddenbar
 brew install --cask free-download-manager
 brew install --cask slack
+brew install --cask beyond-compare
+brew install --cask alfred
+brew install --cask cleanmymac
 
 # Security
 brew install --cask keepassxc
@@ -106,6 +111,7 @@ brew install asciinema
 brew install htop
 brew install gotop
 brew install btop
+brew install bottom
 brew install pstree
 brew install tldr
 brew install magic-wormhole
@@ -153,6 +159,8 @@ brew install mysticlgbt/made/mac-linux-kdk
 brew install editorconfig
 brew install languagetool
 brew install smartmontools
+brew install lazygit
+brew install gdu
 
 # Python packages
 brew install python

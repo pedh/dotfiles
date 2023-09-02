@@ -80,7 +80,7 @@ if type "thefuck" > /dev/null; then
     eval $(thefuck --alias f)
 fi
 export EDITOR='emacsclient -nw'
-export ALTERNATE_EDITOR='vim'
+export ALTERNATE_EDITOR='nvim'
 export DISPLAY=":0.0"
 export GPG_TTY=$TTY
 export BAT_THEME=zenburn

@@ -3,3 +3,4 @@
 .vim/.*
 .vim/swaps
 .DS_Store
+lazy-lock.json
