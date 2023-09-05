@@ -10,7 +10,9 @@ function install_git_config() {
 }
 
 function install_dir_colors() {
-	gdircolors -b ${DOTFILES_PATH}/.dircolors >${HOME}/.LS_COLORS
+	local dircolors_cmd="dircolors"
+	type -p dircolors || dircolors_cmd="gdircolors"
+	${dircolors_cmd} -b ${DOTFILES_PATH}/.dircolors >${HOME}/.LS_COLORS
 }
 
 function install_zshrc() {
@@ -62,6 +64,11 @@ function install_mbsyncrc() {
 	ln -sf ${DOTFILES_PATH}/.mbsyncrc ${HOME}/
 }
 
+function install_iterm2_preferences() {
+	defaults write -app iterm "PrefsCustomFolder" -string "${DOTFILES_PATH}/.iterm"
+	defaults write -app iterm "LoadPrefsFromCustomFolder" -bool true
+}
+
 function install_other() {
 	ln -sf ${DOTFILES_PATH}/.tcshrc ${HOME}/
 }
@@ -77,6 +84,9 @@ function install_all() {
 	install_gpg_conf
 	install_mbsyncrc
 	install_other
+	if [[ z"$(uname)" == z"Darwin" ]]; then
+		install_iterm2_preferences
+	fi
 }
 
 install_all

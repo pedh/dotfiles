@@ -95,6 +95,12 @@
       $ ln -sf ~/.dotfiles/.config/fontconfig/fonts.conf \
         ~/.config/fontconfig/fonts.conf
       #+end_src
+** iterm2 (macos only)
+   1. Custom iterm2 preferences
+      #+begin_src
+      $ defaults write -app iterm "PrefsCustomFolder" -string "${HOME}/.dotfiles/.iterm"
+      $ defaults write -app iterm "LoadPrefsFromCustomFolder" -bool true
+      #+end_src
 ** other
    1. Create symbolic link
       #+begin_src
