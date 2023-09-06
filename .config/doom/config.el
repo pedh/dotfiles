@@ -173,15 +173,10 @@
 ;; 2. create fullheight (but not fullwidth) frames on every subsequent frame
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
-(setq-default show-trailing-whitespace t)
 
 ;; replace c-spc with c-., since c-spc is already binding to switching input
 ;; source under macos.
 (global-set-key (kbd "C-.") (kbd "C-SPC"))
-
-;; enable global whitespace mode, for display trailing whitespaces, long line
-;; and etc.
-(global-whitespace-mode +1)
 
 ;; enable global display fill column indicator mode, to display the fill column
 ;; indicator.
