@@ -175,6 +175,7 @@ brew install pipenv
 
 # Golang packages
 brew install go
+brew install golangci-lint
 brew install protobuf
 brew install gops
 
