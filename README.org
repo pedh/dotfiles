@@ -107,6 +107,5 @@ $ ln -sf ~/.dotfiles/.tcshrc ~/
 #+end_src
 2. Install kubernetes krew plugins
 #+begin_src
-$ kubectl krew index add awesome-kubectl-plugins https://github.com/ishantanu/awesome-kubectl-plugins.git
 $ kubectl krew install < ~/.dotfiles/.krew-list.txt
 #+end_src

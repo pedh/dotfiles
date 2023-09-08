@@ -201,6 +201,7 @@ brew install krew
 brew install kubectx
 brew install helm
 brew install kubebuilder
+brew install k9s
 
 # Install GnuPG to enable PGP-signing commits.
 brew install gnupg
