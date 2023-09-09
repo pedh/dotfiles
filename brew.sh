@@ -129,6 +129,7 @@ brew install yq
 brew install cloc
 brew install mu
 brew install isync
+brew install m-cli
 
 # Install other useful binaries.
 brew install ack
