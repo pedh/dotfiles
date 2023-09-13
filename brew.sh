@@ -82,6 +82,7 @@ brew install iperf3
 brew install proxychains-ng
 brew install mtr
 brew install ipinfo-cli
+brew install grpcurl
 
 # Install more recent versions of some macOS tools.
 brew install vim
