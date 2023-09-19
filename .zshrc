@@ -149,7 +149,8 @@ setopt combining_chars        # combine zero-length punctuation characters (acce
 setopt emacs                  # use emacs keybindings in the shell
 
 # Aliases
-alias e='emacsclient -nw'
+alias e='emacsclient -nw -s term'
+alias eserver='emacs -nw --daemon=term'
 alias glf="git rev-list --objects --all |
   git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' |
   sed -n 's/^blob //p' |
@@ -163,7 +164,7 @@ if type "thefuck" > /dev/null; then
 fi
 
 # Exports
-export EDITOR='emacsclient -nw'
+export EDITOR='emacsclient -nw -s term'
 export ALTERNATE_EDITOR='nvim'
 export DISPLAY=":0.0"
 export GPG_TTY=$TTY
