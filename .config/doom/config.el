@@ -185,6 +185,13 @@
 ;; indicator.
 (global-display-fill-column-indicator-mode)
 
+;; enable native pixel line scrolling.
+(when (fboundp 'pixel-scroll-precision-mode)
+  (progn
+    (setq pixel-scroll-precision-interpolate-page t)
+    (setq pixel-scroll-precision-large-scroll-height 40.0)
+    (setq pixel-scroll-precision-interpolation-factor 30.0)
+    (pixel-scroll-precision-mode t)))
+
 ;; set user identification.
 (setq user-mail-address "hcn518@gmail.com")
-
