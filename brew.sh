@@ -39,8 +39,9 @@ brew install bash-completion2
 
 # Install fonts
 brew tap homebrew/cask-fonts
-brew install font-meslo-lg-nerd-font
-brew install font-dejavu
+brew install --cask font-meslo-lg-nerd-font
+brew install --cask font-symbols-only-nerd-font
+brew install --cask font-dejavu
 
 # Install zsh and zinit
 brew install zsh
@@ -156,7 +157,7 @@ brew install vbindiff
 brew install zopfli
 brew install tmux
 brew install --cask cmake
-brew install llvm
+brew install llvm && brew link --force llvm
 brew install bear
 brew install mysticlgbt/made/mac-linux-kdk
 brew install editorconfig

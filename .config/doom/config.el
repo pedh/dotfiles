@@ -38,8 +38,7 @@
   doom-variable-pitch-font (font-spec :family "DejaVu Sans" :size 14)
   doom-big-font (font-spec :family "Monaco" :size 20)
   doom-unicode-font (font-spec :family "MesloLGS Nerd Font" :size 14)
-  doom-serif-font (font-spec :family "DejaVu Serif" :size 14)
-  )
+  doom-serif-font (font-spec :family "DejaVu Serif" :size 14))
 
 ;; Change the doom dashboard banner
 (defun doom-dashboard-draw-ascii-emacs-banner-fn ()
