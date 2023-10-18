@@ -1,5 +1,7 @@
 [commit]
 	gpgsign = true
+[credential]
+	helper = osxkeychain
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	process = git-lfs filter-process
