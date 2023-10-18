@@ -1,26 +1,24 @@
-[user]
-	signingkey = 2128C41635AB5896
-	name = pedh
-	email = hcn518@gmail.com
-[gpg]
-	program = gpg
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-[merge]
-	tool = bc
-[pull]
-	rebase = false
-[mergetool "bc3"]
-	trustExitCode = true
 [commit]
 	gpgsign = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+	required = true
+	smudge = git-lfs smudge -- %f
+[gpg]
+	program = gpg
+[merge]
+	tool = bc
 [mergetool "bc"]
 	trustExitCode = true
+[pull]
+	rebase = false
+[push]
+    autoSetupRemote = true
+	default = current
 [tag]
 	forceSignAnnotated = true
-[push]
-	default = current
-	autoSetupRemote = true
+[user]
+	email = hcn518@gmail.com
+	name = pedh
+	signingkey = 2128C41635AB5896
