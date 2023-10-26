@@ -6,14 +6,15 @@ return {
     init = function(_)
       local c = require("zenburn.palette")
       local hl = require("zenburn.highlights")
-      local alpha_hl = {
-        AlphaButtons = c.Function,
-        AlphaFooter = c.Comment,
-        AlphaHeader = c.Comment,
-        AlphaHeaderLabel = c.Label,
-        AlphaShortcut = c.Number,
+      local dashboard_hl = {
+        DashboardHeader = c.Comment,
+        DashboardFooter = c.Comment,
+        DashboardDesc = c.Identifier,
+        DashboardKey = c.Number,
+        DashboardIcon = c.Identifier,
+        DashboardShortCut = c.Function,
       }
-      table.insert(hl, alpha_hl)
+      table.insert(hl, dashboard_hl)
     end,
   },
 
