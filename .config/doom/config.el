@@ -180,6 +180,9 @@
 ;; source under macos.
 (global-set-key (kbd "C-.") (kbd "C-SPC"))
 
+;; use dump jump to jump to definition, as the complement of lsp.
+(global-set-key (kbd "M-RET") 'dumb-jump-go)
+
 ;; enable global display fill column indicator mode, to display the fill column
 ;; indicator.
 (global-display-fill-column-indicator-mode)
