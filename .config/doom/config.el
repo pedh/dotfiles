@@ -150,15 +150,25 @@
        (file+head "pages/${slug}.org" "#+title: ${title}\n")
        :unnarrowed t))))
 
-;; copilot settings
-;; accept completion from copilot and fallback to company
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (:map copilot-completion-map
-              ("<tab>" . 'copilot-accept-completion)
-              ("TAB" . 'copilot-accept-completion)
-              ("C-TAB" . 'copilot-accept-completion-by-word)
-              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+;; codeium settings
+(defun my/codeium-enable()
+  "Enable codeium"
+  (interactive)
+  (add-to-list 'completion-at-point-functions #'codeium-completion-at-point))
+
+(use-package! codeium
+  :hook ((prog-mode eglot-managed-mode) . my/codeium-enable)
+  :config
+  (setq codeium-api-enabled
+        (lambda (api)
+          (memq api '(GetCompletions Heartbeat CancelRequest GetAuthToken RegisterUser auth-redirect AcceptCompletion))))
+  (defun my-codeium/document/text ()
+    (buffer-substring-no-properties (max (- (point) 3000) (point-min)) (min (+ (point) 1000) (point-max))))
+  (defun my-codeium/document/cursor_offset ()
+    (codeium-utf8-byte-length
+     (buffer-substring-no-properties (max (- (point) 3000) (point-min)) (point))))
+  (setq codeium/document/text 'my-codeium/document/text)
+  (setq codeium/document/cursor_offset 'my-codeium/document/cursor_offset))
 
 ;; circe settings
 (after! circe
