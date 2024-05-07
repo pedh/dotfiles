@@ -50,6 +50,7 @@ brew install zinit
 # Install essential applications
 brew install --cask iterm2
 brew install --cask google-chrome
+brew install --cask arc
 
 # Editors
 brew tap railwaycat/emacsmacport

@@ -16,7 +16,7 @@
 [pull]
 	rebase = false
 [push]
-    autoSetupRemote = true
+	autoSetupRemote = true
 	default = current
 [tag]
 	forceSignAnnotated = true
