@@ -186,6 +186,7 @@ brew install gops
 
 # Rust packages
 brew install rustup
+brew install rust-analyzer
 
 # Haskell packages
 brew install ghcup
