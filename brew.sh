@@ -140,6 +140,7 @@ brew install exiv2
 brew install git
 brew install git-lfs
 brew install git-extras
+brew install git-delta
 brew install gitup
 brew install gh
 brew install global

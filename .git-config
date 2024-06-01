@@ -1,7 +1,13 @@
 [commit]
 	gpgsign = true
+[core]
+	pager = delta
 [credential]
 	helper = osxkeychain
+[delta]
+	navigate = true
+[diff]
+	colorMoved = default
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	process = git-lfs filter-process
@@ -9,7 +15,10 @@
 	smudge = git-lfs smudge -- %f
 [gpg]
 	program = gpg
+[interactive]
+	diffFilter = delta --color-only
 [merge]
+	conflictstyle = diff3
 	tool = bc
 [mergetool "bc"]
 	trustExitCode = true
