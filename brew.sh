@@ -129,6 +129,7 @@ brew install thefuck
 brew install shellcheck
 brew install jq
 brew install yq
+brew install duckdb
 brew install cloc
 brew install mu
 brew install isync
