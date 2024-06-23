@@ -38,7 +38,6 @@ brew install bash
 brew install bash-completion2
 
 # Install fonts
-brew tap homebrew/cask-fonts
 brew install --cask font-meslo-lg-nerd-font
 brew install --cask font-symbols-only-nerd-font
 brew install --cask font-dejavu
