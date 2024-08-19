@@ -53,7 +53,8 @@ brew install --cask arc
 
 # Editors
 brew tap railwaycat/emacsmacport
-brew install --cask emacs-mac
+brew install emacs-mac --with-modules --with-native-compilation
+osacompile -o /Applications/Emacs.app -e "tell application \"Finder\" to open POSIX file \"$(brew --prefix)/opt/emacs-mac/Emacs.app\""
 brew install neovim
 brew install --cask visual-studio-code
 
