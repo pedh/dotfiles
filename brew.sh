@@ -138,6 +138,7 @@ brew install m-cli
 # Install other useful binaries.
 brew install ack
 brew install exiv2
+brew install ffmpegthumbnailer
 brew install git
 brew install git-lfs
 brew install git-extras
@@ -149,8 +150,11 @@ brew install gs
 brew install imagemagick
 brew install lua
 brew install lynx
+brew install lzip
+brew install media-info
 brew install p7zip
 brew install pigz
+brew install poppler
 brew install pv
 brew install rename
 brew install rlwrap
@@ -186,21 +190,18 @@ brew install golangci-lint
 brew install protobuf
 brew install gops
 
-# Rust packages
+# Various programming languages
 brew install rustup
 brew install rust-analyzer
-
-# Haskell packages
 brew install ghcup
-
-# Common lisp packages
 brew install sbcl
-
-# Node.js packages
 brew install npm
-
-# Web packages
 brew install stylelint
+brew install yaml-language-server
+brew install bash-language-server
+brew install shfmt
+brew install terraform
+brew install terraform-ls
 
 # Kubernetes cli packages
 brew install kubernetes-cli

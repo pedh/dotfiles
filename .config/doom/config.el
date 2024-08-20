@@ -120,9 +120,6 @@
     deft-extensions '("txt" "md" "org")
     deft-recursive t))
 
-;; minimap settings
-(minimap-mode 1)
-
 ;; org mode settings
 (defun my-org-faces ()
   (if writeroom-mode

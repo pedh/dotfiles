@@ -38,7 +38,8 @@ zinit wait lucid for \
       OMZP::autojump \
       OMZP::fzf \
       OMZP::gnu-utils \
-      OMZP::kubectl
+      OMZP::kubectl \
+      OMZP::terraform
 
 PS1="READY >" # provide a simple prompt till the theme loads
 
