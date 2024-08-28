@@ -103,7 +103,7 @@ brew install --cask calibre
 brew install --cask mactex
 brew install --cask inkscape
 brew install --cask logseq
-brew install --cask xournal-plus-plus
+brew install --cask xournal++
 brew install pandoc
 
 # Awesome command line tools
