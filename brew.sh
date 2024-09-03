@@ -85,6 +85,7 @@ brew install proxychains-ng
 brew install mtr
 brew install ipinfo-cli
 brew install grpcurl
+brew install bandwhich
 
 # Install more recent versions of some macOS tools.
 brew install vim
@@ -111,12 +112,14 @@ brew install autojump
 brew install bat
 brew install fd
 brew install fzf
+brew install lsd
 brew install asciinema
 brew install htop
 brew install gotop
 brew install btop
 brew install bottom
 brew install pstree
+brew install procs
 brew install tldr
 brew install magic-wormhole
 brew install mycli
@@ -134,6 +137,8 @@ brew install cloc
 brew install mu
 brew install isync
 brew install m-cli
+brew install diskonaut
+brew install dust
 
 # Install other useful binaries.
 brew install ack
@@ -144,6 +149,7 @@ brew install git-lfs
 brew install git-extras
 brew install git-delta
 brew install gitup
+brew install gitui
 brew install gh
 brew install global
 brew install gs

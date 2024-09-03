@@ -26,39 +26,42 @@ path=(/usr/local/sbin
       $path)
 export PATH
 
+# ohmyzsh libraries and plugins
 zinit wait lucid for \
-      OMZL::git.zsh \
+      OMZL::completion.zsh \
       OMZL::directories.zsh \
       OMZL::key-bindings.zsh \
-      OMZL::completion.zsh \
+ atload"if type lsd > /dev/null; then alias ls=lsd; fi" \
       OMZL::theme-and-appearance.zsh \
-      OMZP::git \
-      OMZP::pip \
-      OMZP::command-not-found \
       OMZP::autojump \
+      OMZP::command-not-found \
       OMZP::fzf \
+      OMZP::git \
       OMZP::gnu-utils \
       OMZP::kubectl \
+      OMZP::pip \
       OMZP::terraform
 
-PS1="READY >" # provide a simple prompt till the theme loads
+# provide a simple prompt till the theme loads
+PS1="READY >"
 
-zinit ice depth"1"
+# use p10k theme
+zinit ice depth"1" # git clone depth
 zinit light romkatv/powerlevel10k
 
+# extra plugins
 zinit wait lucid for \
+ atinit"
+     zstyle ':completion:*:git-checkout:*' sort false
+     zstyle ':completion:*:descriptions' format '[%d]'
+     zstyle ':completion:*' list-colors \${(s.:.)LS_COLORS}
+     zstyle ':completion:*' menu no
+     zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always \$realpath'
+     zstyle ':fzf-tab:*' switch-group '<' '>'
+" \
+   Aloxaf/fzf-tab \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
- atinit"
-     zstyle ':completion:*' extra-verbose yes
-     zstyle ':completion:*' completer _extensions _complete _approximate
-     zstyle ':completion:*:descriptions' format '%F{yellow}%B--- %d%b%f'
-     zstyle ':completion:*:messages' format '%d'
-     zstyle ':completion:*:warnings' format '%F{red}No matches for:%f %d'
-     zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
-     zstyle ':completion:*' group-name ''
-     zstyle ':completion:*' list-colors \${(s.:.)LS_COLORS}
-" \
     zsh-users/zsh-completions \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
