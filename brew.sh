@@ -56,7 +56,7 @@ brew tap d12frosted/emacs-plus
 brew install emacs-plus --with-native-comp --with-imagemagick --with-poll
 osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus@29/Emacs.app" at POSIX file "/Applications" with properties {name:"Emacs.app"}'
 brew install neovim
-brew install --cask visual-studio-code
+brew install --cask cursor
 
 # Awesome MacOS applications
 brew install --cask scroll-reverser

@@ -154,7 +154,7 @@
   (add-to-list 'completion-at-point-functions #'codeium-completion-at-point))
 
 (use-package! codeium
-  :hook ((prog-mode eglot-managed-mode) . my/codeium-enable)
+  :hook ((prog-mode eglot-managed-mode org-mode) . my/codeium-enable)
   :config
   (setq codeium-api-enabled
         (lambda (api)
