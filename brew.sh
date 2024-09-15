@@ -35,7 +35,7 @@ brew install gnu-which
 brew install man-db
 # Install a modern version of Bash.
 brew install bash
-brew install bash-completion2
+brew install bash-completion@2
 
 # Install fonts
 brew install --cask font-meslo-lg-nerd-font
@@ -54,7 +54,9 @@ brew install --cask arc
 # Editors
 brew tap d12frosted/emacs-plus
 brew install emacs-plus --with-native-comp --with-imagemagick --with-poll
-osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus@29/Emacs.app" at POSIX file "/Applications" with properties {name:"Emacs.app"}'
+if [[ ! -f "/Applications/Emacs.app" ]]; then
+    osascript -e 'tell application "Finder" to make alias file to posix file "'${BREW_PREFIX}/opt/emacs-plus/Emacs.app'" at POSIX file "/Applications" with properties {name:"Emacs.app"}'
+fi
 brew install neovim
 brew install --cask cursor
 
