@@ -88,6 +88,7 @@ brew install mtr
 brew install ipinfo-cli
 brew install grpcurl
 brew install bandwhich
+brew install netdata
 
 # Install more recent versions of some macOS tools.
 brew install vim
