@@ -8,7 +8,7 @@
 [delta]
 	navigate = true
 [diff]
-	colorMoved = default
+	colorMoved = dimmed-zebra
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	process = git-lfs filter-process
