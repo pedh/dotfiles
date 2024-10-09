@@ -108,6 +108,7 @@ brew install --cask mactex
 brew install --cask inkscape
 brew install --cask logseq
 brew install --cask xournal++
+brew install --cask zotero
 brew install pandoc
 
 # Awesome command line tools
