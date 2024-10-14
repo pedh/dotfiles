@@ -64,10 +64,9 @@ brew install --cask cursor
 brew install --cask scroll-reverser
 brew install --cask hiddenbar
 brew install --cask free-download-manager
-brew install --cask slack
 brew install --cask beyond-compare
-brew install --cask alfred
-brew install --cask cleanmymac
+brew install --cask raycast
+brew install --cask stats
 
 # Security
 brew install --cask keepassxc
