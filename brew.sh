@@ -67,6 +67,7 @@ brew install --cask free-download-manager
 brew install --cask beyond-compare
 brew install --cask raycast
 brew install --cask stats
+brew install --cask flux
 
 # Security
 brew install --cask keepassxc
