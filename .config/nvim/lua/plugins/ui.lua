@@ -1,7 +1,7 @@
 return {
   --- Configure dashboard-nvim
   {
-    "nvimdev/dashboard-nvim",
+    "folke/snacks.nvim",
     opts = function(_, options)
       local logo = "\n\n\n\n" .. [[
                  ######      ###        
@@ -22,7 +22,7 @@ return {
    ###########                   ###### 
     #####                          #####
       ]] .. "\n\n"
-      options.config.header = vim.split(logo, "\n")
+      options.dashboard.preset.header = logo
     end,
   },
 }

@@ -7,12 +7,12 @@ return {
       local c = require("zenburn.palette")
       local hl = require("zenburn.highlights")
       local dashboard_hl = {
-        DashboardHeader = c.Comment,
-        DashboardFooter = c.Comment,
-        DashboardDesc = c.Identifier,
-        DashboardKey = c.Number,
-        DashboardIcon = c.Identifier,
-        DashboardShortCut = c.Function,
+        SnacksDashboardHeader = c.Comment,
+        SnacksDashboardFooter = c.Comment,
+        SnacksDashboardDesc = c.Identifier,
+        SnacksDashboardKey = c.Number,
+        SnacksDashboardIcon = c.Identifier,
+        SnacksDashboardShortCut = c.Function,
       }
       table.insert(hl, dashboard_hl)
     end,
