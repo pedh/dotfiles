@@ -176,6 +176,7 @@ brew install zopfli
 brew install tmux
 brew install --cask cmake
 brew install llvm && brew link --force llvm
+brew install lld
 brew install bear
 brew install mysticlgbt/made/mac-linux-kdk
 brew install editorconfig
