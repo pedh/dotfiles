@@ -55,7 +55,7 @@ brew install --cask arc
 brew tap d12frosted/emacs-plus
 brew install emacs-plus --with-native-comp --with-imagemagick --with-poll
 if [[ ! -f "/Applications/Emacs.app" ]]; then
-    osascript -e 'tell application "Finder" to make alias file to posix file "'${BREW_PREFIX}/opt/emacs-plus/Emacs.app'" at POSIX file "/Applications" with properties {name:"Emacs.app"}'
+  osascript -e 'tell application "Finder" to make alias file to posix file "'${BREW_PREFIX}/opt/emacs-plus/Emacs.app'" at POSIX file "/Applications" with properties {name:"Emacs.app"}'
 fi
 brew install neovim
 brew install --cask cursor
@@ -89,6 +89,7 @@ brew install ipinfo-cli
 brew install grpcurl
 brew install bandwhich
 brew install netdata
+brew install oha
 
 # Install more recent versions of some macOS tools.
 brew install vim
