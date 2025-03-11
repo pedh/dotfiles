@@ -177,6 +177,14 @@
       :sasl-password (lambda (&rest _) (+pass-get-secret "irc/freenode"))
       :channels ("#emacs" "#linux" "#python"))))
 
+;; ultra-scroll settings
+(use-package! ultra-scroll
+  :init
+  (setq scroll-conservatively 101
+        scroll-margin 0) 
+  :config
+  (ultra-scroll-mode 1))
+
 ;; other settings
 ;; 1. create a maximized initial frame
 ;; 2. create fullheight (but not fullwidth) frames on every subsequent frame
@@ -193,14 +201,6 @@
 ;; enable global display fill column indicator mode, to display the fill column
 ;; indicator.
 (global-display-fill-column-indicator-mode)
-
-;; enable native pixel line scrolling.
-(when (fboundp 'pixel-scroll-precision-mode)
-  (progn
-    (setq pixel-scroll-precision-interpolate-page t)
-    (setq pixel-scroll-precision-large-scroll-height 40.0)
-    (setq pixel-scroll-precision-interpolation-factor 30.0)
-    (pixel-scroll-precision-mode t)))
 
 ;; set user identification.
 (setq user-mail-address "hcn518@gmail.com")

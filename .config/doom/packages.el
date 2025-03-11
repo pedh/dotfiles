@@ -50,4 +50,6 @@
 ;(unpin! t)
 
 (package! codeium :recipe (:host github :repo "Exafunction/codeium.el"))
+(package! ultra-scroll :recipe (:host github :repo "jdtsmith/ultra-scroll"))
+
 
