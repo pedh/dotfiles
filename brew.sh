@@ -145,6 +145,7 @@ brew install m-cli
 brew install diskonaut
 brew install dust
 brew install fblog
+brew install ispell
 
 # Install other useful binaries.
 brew install ack
