@@ -197,6 +197,7 @@ brew install python-lsp-server
 brew install pyenv
 brew install poetry
 brew install pipenv
+brew install uv
 
 # Golang packages
 brew install go
