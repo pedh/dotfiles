@@ -15,7 +15,9 @@ ice
 images
 kc
 konfig
+kor
 krew
+kruise
 ktop
 lineage
 modify-secret
@@ -23,6 +25,7 @@ neat
 node-shell
 outdated
 preflight
+pexec
 pv-migrate
 rbac-lookup
 rbac-tool
