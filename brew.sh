@@ -155,6 +155,7 @@ brew install git
 brew install git-lfs
 brew install git-extras
 brew install git-delta
+brew install git-flow
 brew install gitup
 brew install gitui
 brew install gh
