@@ -273,5 +273,8 @@ brew install --cask wacom-tablet
 brew install --cask listen1
 brew install --cask transmission
 
+# Language tools.
+brew install --cask squirrel
+
 # Remove outdated versions from the cellar.
 brew cleanup
