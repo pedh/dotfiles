@@ -50,6 +50,7 @@ brew install zinit
 brew install --cask iterm2
 brew install --cask google-chrome
 brew install --cask arc
+brew install --cask warp
 
 # Editors
 brew tap d12frosted/emacs-plus
@@ -58,7 +59,7 @@ if [[ ! -f "/Applications/Emacs.app" ]]; then
   osascript -e 'tell application "Finder" to make alias file to posix file "'${BREW_PREFIX}/opt/emacs-plus/Emacs.app'" at POSIX file "/Applications" with properties {name:"Emacs.app"}'
 fi
 brew install neovim
-brew install --cask cursor
+brew install --cask windsurf
 
 # Awesome MacOS applications
 brew install --cask scroll-reverser
