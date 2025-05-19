@@ -41,6 +41,8 @@ brew install bash-completion@2
 brew install --cask font-meslo-lg-nerd-font
 brew install --cask font-symbols-only-nerd-font
 brew install --cask font-dejavu
+brew tap pedh/monaco-nerd-fonts
+brew install --cask font-monaco-nerd-font
 
 # Install zsh and zinit
 brew install zsh
@@ -82,7 +84,6 @@ brew install --cask postman
 brew install httpie
 brew install aria2
 brew install tcpdump
-brew install termshark
 brew install iperf3
 brew install proxychains-ng
 brew install mtr
@@ -126,7 +127,7 @@ brew install btop
 brew install bottom
 brew install pstree
 brew install procs
-brew install tldr
+brew install tlrc
 brew install magic-wormhole
 brew install mycli
 brew install mas
@@ -217,7 +218,6 @@ brew install stylelint
 brew install yaml-language-server
 brew install bash-language-server
 brew install shfmt
-brew install terraform
 brew install terraform-ls
 
 # Kubernetes cli packages
@@ -242,7 +242,6 @@ brew install dex2jar
 brew install dns2tcp
 brew install fcrackzip
 brew install foremost
-brew install hashpump
 brew install hydra
 brew install john
 brew install knock
@@ -253,7 +252,6 @@ brew install socat
 brew install sqlmap
 brew install tcpflow
 brew install tcpreplay
-brew install tcptrace
 brew install ucspi-tcp # `tcpserver` etc.
 brew install xz
 brew install radare2
