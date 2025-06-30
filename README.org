@@ -8,9 +8,9 @@ Clone this repo to ~/.dotfiles
 #+begin_src
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 #+end_src
-2. Run brew.sh
+2. Install homebrew packages
 #+begin_src
-$ ./brew.sh
+$ cd ~/.dotfiles && brew bundle
 #+end_src
 ** git config
 1. Create symbolic link
