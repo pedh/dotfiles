@@ -64,7 +64,7 @@ brew install neovim
 brew install --cask windsurf
 
 # Awesome MacOS applications
-brew install --cask scroll-reverser
+brew install --cask mos
 brew install --cask hiddenbar
 brew install --cask free-download-manager
 brew install --cask beyond-compare
