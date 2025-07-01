@@ -58,6 +58,8 @@ cask "stats"
 cask "flux-app"
 cask "betterdisplay"
 cask "xquartz"
+cask "pearcleaner"
+cask "onyx"
 
 # Security.
 cask "keepassxc"
