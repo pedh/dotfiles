@@ -50,7 +50,7 @@ cask "windsurf"
 
 # Awesome MacOS applications.
 cask "mos"
-cask "hiddenbar"
+cask "jordanbaird-ice"
 cask "free-download-manager"
 cask "beyond-compare"
 cask "raycast"
