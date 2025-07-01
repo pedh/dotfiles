@@ -289,4 +289,5 @@ brew "cloudflared"
 # AI tools.
 cask "claude"
 cask "ollama-app"
+brew "gemini-cli"
 
