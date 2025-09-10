@@ -143,7 +143,7 @@ brew "fblog"
 brew "ispell"
 brew "autossh"
 brew "hwloc"
-brew "rpm2cpio"
+brew "rpm"
 brew "sysdig"
 
 # Install other useful binaries.
