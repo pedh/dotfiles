@@ -47,6 +47,7 @@ brew "emacs-plus", args: ["with-imagemagick"],
 brew "neovim"
 cask "visual-studio-code"
 cask "windsurf"
+cask "antigravity"
 
 # Awesome MacOS applications.
 cask "mos"
