@@ -23,6 +23,7 @@ path=(/usr/local/sbin
       ${HOME}/.krew/bin
       ${HOME}/.ghcup/bin
       ${HOME}/.cargo/bin
+      ${HOME}/.local/bin
       $path)
 export PATH
 
