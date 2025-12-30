@@ -45,8 +45,6 @@ tap "d12frosted/emacs-plus"
 brew "emacs-plus", args: ["with-imagemagick"],
      postinstall: "osascript -e 'tell application \"Finder\" to make alias file to posix file \"${HOMEBREW_PREFIX}/opt/emacs-plus/Emacs.app\" at POSIX file \"/Applications\" with properties {name:\"Emacs.app\"}'"
 brew "neovim"
-cask "visual-studio-code"
-cask "windsurf"
 cask "antigravity"
 
 # Awesome MacOS applications.
