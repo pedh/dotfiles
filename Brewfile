@@ -144,6 +144,7 @@ brew "autossh"
 brew "hwloc"
 brew "rpm"
 brew "sysdig"
+brew "witr"
 
 # Install other useful binaries.
 brew "ack"
