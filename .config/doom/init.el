@@ -73,6 +73,9 @@
        ;;parinfer          ; turn lisp into python, sort of
        ;;rotate-text       ; cycle region at point between text candidates
        snippets            ; my elves. They type so I don't have to
+       (whitespace
+        +guess
+        +trim)             ; a butler for your whitespace
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
@@ -80,7 +83,9 @@
         +dirvish
         +icons)            ; making dired pretty [functional]
        electric            ; smarter, keyword-based electric-indent
+       ;;eww               ; the internet is gross
        ;;ibuffer           ; interactive buffer management
+       tramp               ; remote files at your arthritic fingertips
        undo                ; persistent, smarter undo for your inevitable
                            ; mistakes
        vc                  ; version-control and Emacs, sitting in a tree
@@ -132,8 +137,7 @@
        :lang
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
-       (cc
-        +lsp)              ; C > C++ == 1
+       (cc +lsp)           ; C > C++ == 1
        ;;clojure           ; java with a lisp
        common-lisp         ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
