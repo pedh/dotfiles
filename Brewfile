@@ -42,8 +42,7 @@ cask "warp"
 
 # Editors.
 tap "d12frosted/emacs-plus"
-brew "emacs-plus", args: ["with-imagemagick"],
-     postinstall: "osascript -e 'tell application \"Finder\" to make alias file to posix file \"${HOMEBREW_PREFIX}/opt/emacs-plus/Emacs.app\" at POSIX file \"/Applications\" with properties {name:\"Emacs.app\"}'"
+cask "emacs-plus-app"
 brew "neovim"
 cask "antigravity"
 
@@ -282,7 +281,7 @@ cask "squirrel-app"
 # Cloud computing.
 brew "awscli"
 brew "azure-cli"
-cask "google-cloud-sdk"
+cask "gcloud-cli"
 brew "aliyun-cli"
 brew "cloudflared"
 
