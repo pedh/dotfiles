@@ -216,6 +216,7 @@ brew "yaml-language-server"
 brew "bash-language-server"
 brew "shfmt"
 brew "terraform-ls"
+brew "markdownlint-cli2"
 
 # Cross compiling.
 tap "messense/macos-cross-toolchains"
