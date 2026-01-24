@@ -104,6 +104,7 @@ cask "xournal++"
 cask "zotero"
 brew "pandoc"
 brew "hugo"
+brew "manim"
 
 # Awesome command line tools.
 brew "autojump"
