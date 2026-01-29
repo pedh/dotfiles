@@ -90,7 +90,6 @@ brew "php"
 brew "gmp"
 
 # Homebrew.
-tap "homebrew/command-not-found"
 tap "domt4/autoupdate"
 
 # Document tools.
