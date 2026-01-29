@@ -11,6 +11,7 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 2. Install homebrew packages
 #+begin_src
 $ cd ~/.dotfiles && brew bundle
+$ brew autoupdate start 43200 --upgrade --cleanup --immediate --sudo
 #+end_src
 ** git config
 1. Create symbolic link
