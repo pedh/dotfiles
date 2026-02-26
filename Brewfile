@@ -48,7 +48,7 @@ cask "antigravity"
 
 # Awesome MacOS applications.
 cask "mos"
-cask "jordanbaird-ice"
+cask "thaw"
 cask "free-download-manager"
 cask "beyond-compare"
 cask "raycast"
