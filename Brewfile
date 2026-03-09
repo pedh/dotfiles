@@ -145,6 +145,7 @@ brew "hwloc"
 brew "rpm"
 brew "sysdig"
 brew "witr"
+brew "terminal-notifier"
 
 # Install other useful binaries.
 brew "ack"
