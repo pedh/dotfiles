@@ -286,6 +286,7 @@ brew "azure-cli"
 cask "gcloud-cli"
 brew "aliyun-cli"
 brew "cloudflared"
+brew "googleworkspace-cli"
 
 # AI tools.
 cask "claude"
