@@ -157,6 +157,12 @@
       :sasl-password (lambda (&rest _) (+pass-get-secret "irc/freenode"))
       :channels ("#emacs" "#linux" "#python"))))
 
+;; claude code settings
+(use-package! claude-code-ide
+  :bind ("C-c C-'" . claude-code-ide-menu) ; Set your favorite keybinding
+  :config
+  (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
+
 ;; other settings
 ;; 1. create a maximized initial frame
 ;; 2. create fullheight (but not fullwidth) frames on every subsequent frame
