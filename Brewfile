@@ -77,9 +77,11 @@ brew "mtr"
 brew "nexttrace"
 brew "ipinfo-cli"
 brew "grpcurl"
+brew "websocat"
 brew "bandwhich"
 brew "netdata"
 brew "oha"
+brew "gost"
 
 # Install more recent versions of some macOS tools.
 brew "vim"
@@ -191,6 +193,7 @@ brew "languagetool"
 brew "smartmontools"
 brew "lazygit"
 brew "gdu"
+brew "compiledb"
 
 # Python packages.
 brew "python"
@@ -296,4 +299,11 @@ brew "googleworkspace-cli"
 # AI tools.
 cask "claude"
 cask "claude-code"
+tap "steipete/tap"
+brew "steipete/tap/mcporter"
+brew "steipete/tap/summarize"
+brew "steipete/tap/remindctl"
+brew "steipete/tap/gogcli"
+tap "antoniorodr/memo"
+brew "antoniorodr/memo/memo"
 
