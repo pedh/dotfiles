@@ -58,6 +58,7 @@ function install_tmux_conf() {
 function install_gpg_conf() {
   ln -sf ${DOTFILES_PATH}/.gnupg/gpg.conf ${HOME}/.gnupg/
   ln -sf ${DOTFILES_PATH}/.gnupg/gpg-agent.conf ${HOME}/.gnupg/
+  ln -sf ${DOTFILES_PATH}/.gnupg/pinentry-auto ${HOME}/.gnupg/
 }
 
 function install_mbsyncrc() {
