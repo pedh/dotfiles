@@ -201,6 +201,8 @@ brew "pyenv"
 brew "poetry"
 brew "pipenv"
 brew "uv"
+brew "ruff"
+brew "pytest"
 
 # Golang packages.
 brew "go"
