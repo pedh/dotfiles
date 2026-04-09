@@ -82,6 +82,7 @@ brew "bandwhich"
 brew "netdata"
 brew "oha"
 brew "gost"
+brew "doh"
 
 # Install more recent versions of some macOS tools.
 brew "vim"
