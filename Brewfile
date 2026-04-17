@@ -299,7 +299,7 @@ brew "googleworkspace-cli"
 
 # AI tools.
 cask "claude"
-cask "claude-code"
+cask "claude-code@latest"
 brew "agent-browser"
 tap "steipete/tap"
 brew "steipete/tap/mcporter"
