@@ -227,6 +227,7 @@ brew "bash-language-server"
 brew "shfmt"
 brew "terraform-ls"
 brew "markdownlint-cli2"
+brew "elan-init"
 
 # Cross compiling.
 tap "messense/macos-cross-toolchains"
