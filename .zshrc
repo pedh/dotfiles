@@ -173,8 +173,6 @@ export EDITOR='emacsclient -nw -s term'
 export ALTERNATE_EDITOR='nvim'
 export DISPLAY=":0.0"
 export BAT_THEME=zenburn
-fpath=("/usr/local/share/zsh/site-functions" $fpath)
-export FPATH
 export GPG_TTY=$(tty)
 export PINENTRY_USER_DATA="USE_TTY=1"
 
