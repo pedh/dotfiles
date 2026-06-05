@@ -9,8 +9,8 @@ fi
 source ${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh
 
 # set LS_COLORS for gnu ls
-if [[ -f .LS_COLORS ]]; then
-    source .LS_COLORS
+if [[ -f ${HOME}/.LS_COLORS ]]; then
+    source ${HOME}/.LS_COLORS
 fi
 
 # set extra paths

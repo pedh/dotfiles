@@ -66,8 +66,9 @@ function install_mbsyncrc() {
 }
 
 function install_iterm2_preferences() {
-  cp -f ${DOTFILES_PATH}/.iterm/com.googlecode.iterm2.plist ${HOME}/Library/Preferences/com.googlecode.iterm2.plist
-  defaults write -app iterm "LoadPrefsFromCustomFolder" -bool false
+  defaults write -app iterm "PrefsCustomFolder" -string "${DOTFILES_PATH}/.iterm"
+  defaults write -app iterm "LoadPrefsFromCustomFolder" -bool true
+  defaults write -app iterm "NoSyncNeverRemindPrefsChangesLostForFile_selection" -int 2
 }
 
 function install_rime() {
