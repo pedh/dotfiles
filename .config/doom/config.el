@@ -40,38 +40,30 @@
   doom-symbol-font (font-spec :family "MesloLGS Nerd Font" :size 14)
   doom-serif-font (font-spec :family "DejaVu Serif" :size 14))
 
-;; Change the doom dashboard banner
-(defun doom-dashboard-draw-ascii-emacs-banner-fn ()
-  (let* ((banner
-          '("                 ######      ###        "
-            "                   #####      ####      "
-            "  ######             ####      ##       "
-            "    #####             ###########       "
-            "    ########## ###  ############        "
-            "  ############ ############             "
-            "#######         ####    ###             "
-            "       ######   ####     ###  ###       "
-            "   #######      ############  ####      "
-            "     ### ####   #################       "
-            "    ########    ####   ###  ####        "
-            "    ####   ##   ####   ###  ####     #  "
-            "     #  ####### #### ##### ######   ##  "
-            "   ####### #### ###  #######   ### #### "
-            "  ######   ### ##               ####### "
-            "   ###########                   ###### "
-            "    #####                          #####"))
-         (longest-line (apply #'max (mapcar #'length banner))))
-    (put-text-property
-     (point)
-     (dolist (line banner (point))
-       (insert (+doom-dashboard--center
-                +doom-dashboard--width
-                (concat
-                 line (make-string (max 0 (- longest-line (length line)))
-                                   32)))
-               "\n"))
-     'face 'doom-dashboard-banner)))
-(setq +doom-dashboard-ascii-banner-fn #'doom-dashboard-draw-ascii-emacs-banner-fn)
+;; Change the dashboard banner
+(defun my-dashboard-ascii-banner-fn ()
+  (propertize
+   (string-join
+    '("                 ######      ###        "
+      "                   #####      ####      "
+      "  ######             ####      ##       "
+      "    #####             ###########       "
+      "    ########## ###  ############        "
+      "  ############ ############             "
+      "#######         ####    ###             "
+      "       ######   ####     ###  ###       "
+      "   #######      ############  ####      "
+      "     ### ####   #################       "
+      "    ########    ####   ###  ####        "
+      "    ####   ##   ####   ###  ####     #  "
+      "     #  ####### #### ##### ######   ##  "
+      "   ####### #### ###  #######   ### #### "
+      "  ######   ### ##               ####### "
+      "   ###########                   ###### "
+      "    #####                          #####")
+    "\n")
+   'face '+dashboard-banner))
+(setq +dashboard-ascii-banner-fn #'my-dashboard-ascii-banner-fn)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -149,12 +141,12 @@
 
 ;; circe settings
 (after! circe
-  (set-irc-server! "chat.freenode.net"
+  (set-irc-server! "irc.libera.chat"
     `(:tls t
       :port 6697
       :nick "pedh"
-      :sasl-username ,(+pass-get-user   "irc/freenode")
-      :sasl-password (lambda (&rest _) (+pass-get-secret "irc/freenode"))
+      :sasl-username ,(+pass-get-user   "irc/libera")
+      :sasl-password (lambda (&rest _) (+pass-get-secret "irc/libera"))
       :channels ("#emacs" "#linux" "#python"))))
 
 ;; claude code settings
