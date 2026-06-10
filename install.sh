@@ -4,8 +4,8 @@ set -e
 
 DOTFILES_PATH="$(git rev-parse --show-toplevel)"
 
-MODULES=(git dircolors zshrc emacs vim nvim tmux gpg mbsync iterm2 rime)
-MACOS_ONLY=(iterm2 rime)
+MODULES=(brew git dircolors zshrc emacs vim nvim tmux gpg mbsync iterm2 rime)
+MACOS_ONLY=(brew iterm2 rime)
 
 is_macos() {
   [[ "$(uname)" == "Darwin" ]]
@@ -26,6 +26,15 @@ can_run() {
     return 1
   fi
   return 0
+}
+
+install_brew() {
+  brew bundle --file="${DOTFILES_PATH}/Brewfile"
+  # Trust all third-party taps declared in Brewfile
+  grep '^tap ' "${DOTFILES_PATH}/Brewfile" | awk '{gsub(/"/, "", $2); print $2}' |
+    while read -r tap; do
+      brew trust "$tap" 2>/dev/null || true
+    done
 }
 
 install_git() {
