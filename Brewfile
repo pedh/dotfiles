@@ -288,6 +288,10 @@ brew "sfnt2woff"
 brew "sfnt2woff-zopfli"
 brew "woff2"
 
+# Markdown.
+tap "pluk-inc/tap"
+cask "pluk-inc/tap/markdown-preview"
+
 # Multimedia.
 cask "kodi"
 cask "krita"
