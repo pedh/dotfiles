@@ -324,4 +324,5 @@ tap "openclaw/tap"
 brew "openclaw/tap/gogcli"
 tap "antoniorodr/memo"
 brew "antoniorodr/memo/memo"
+cask "cc-pocket"
 
