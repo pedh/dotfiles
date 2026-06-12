@@ -58,6 +58,7 @@ cask "betterdisplay"
 cask "xquartz"
 cask "pearcleaner"
 cask "onyx"
+cask "wetype"
 
 # Security.
 cask "keepassxc"
