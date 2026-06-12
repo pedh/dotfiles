@@ -22,7 +22,7 @@ Or install specific modules:
 #+begin_src
 $ ./install.sh git zshrc emacs
 #+end_src
-Available modules: git, dircolors, zshrc, emacs, vim, nvim, tmux, gpg, mbsync, iterm2 (macOS), rime (macOS).
+Available modules: brew (macOS), git, dircolors, zshrc, emacs, vim, nvim, tmux, gpg, mbsync, iterm2 (macOS), rime (macOS).
 ** post-install
 1. Configure powerlevel10k theme
 #+begin_src

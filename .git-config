@@ -3,8 +3,6 @@
 	template = ~/.dotfiles/.git-template
 [core]
 	pager = delta
-[credential]
-	helper = osxkeychain
 [delta]
 	navigate = true
 [diff]

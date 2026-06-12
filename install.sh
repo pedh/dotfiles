@@ -28,6 +28,38 @@ can_run() {
   return 0
 }
 
+backup_path() {
+  local target="$1"
+  local backup
+  local counter=1
+
+  backup="${target}.backup.$(date +%Y%m%d%H%M%S)"
+  while [[ -e "$backup" || -L "$backup" ]]; do
+    backup="${target}.backup.$(date +%Y%m%d%H%M%S).${counter}"
+    counter=$((counter + 1))
+  done
+
+  printf '%s\n' "$backup"
+}
+
+link_path() {
+  local source="$1"
+  local target="$2"
+
+  mkdir -p "$(dirname "$target")"
+
+  if [[ -L "$target" ]]; then
+    if [[ "$(readlink "$target")" == "$source" ]]; then
+      return 0
+    fi
+    mv "$target" "$(backup_path "$target")"
+  elif [[ -e "$target" ]]; then
+    mv "$target" "$(backup_path "$target")"
+  fi
+
+  ln -s "$source" "$target"
+}
+
 install_brew() {
   brew bundle --file="${DOTFILES_PATH}/Brewfile"
   # Trust all third-party taps declared in Brewfile
@@ -38,7 +70,32 @@ install_brew() {
 }
 
 install_git() {
-  ln -sf "${DOTFILES_PATH}/.git-config" "${HOME}/.gitconfig"
+  local target="${HOME}/.gitconfig"
+
+  if ! is_macos; then
+    link_path "${DOTFILES_PATH}/.git-config" "$target"
+    return
+  fi
+
+  mkdir -p "$(dirname "$target")"
+  if [[ -L "$target" ]]; then
+    if [[ "$(readlink "$target")" == "${DOTFILES_PATH}/.git-config" ]]; then
+      rm "$target"
+    else
+      mv "$target" "$(backup_path "$target")"
+    fi
+  elif [[ -e "$target" ]]; then
+    if ! { [[ -f "$target" ]] && grep -qxF "	path = ${DOTFILES_PATH}/.git-config" "$target"; }; then
+      mv "$target" "$(backup_path "$target")"
+    fi
+  fi
+
+  cat > "$target" <<EOF
+[include]
+	path = ${DOTFILES_PATH}/.git-config
+[credential]
+	helper = osxkeychain
+EOF
 }
 
 install_dircolors() {
@@ -49,52 +106,47 @@ install_dircolors() {
 
 install_zshrc() {
   local source_line='source ~/.dotfiles/.zshrc'
+  touch "${HOME}/.zshrc"
   grep -qxF "${source_line}" "${HOME}/.zshrc" ||
     echo "${source_line}" >> "${HOME}/.zshrc"
 }
 
 install_emacs() {
+  mkdir -p "${HOME}/.config"
   git -C "${HOME}/.config/emacs" pull ||
     git clone --depth 1 https://github.com/doomemacs/doomemacs \
       "${HOME}/.config/emacs"
-  "${HOME}/.config/emacs/bin/doom" install --no-config
-  if [[ -e "${HOME}/.config/doom" && ! -L "${HOME}/.config/doom" ]]; then
-    read -p "The doom config already exists, delete it?(y/N)" -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-      rm -rf "${HOME}/.config/doom"
-    else
-      exit 0
-    fi
-  fi
-  ln -sf "${DOTFILES_PATH}/.config/doom" "${HOME}/.config/"
+  "${HOME}/.config/emacs/bin/doom" install --no-config --no-env
+  link_path "${DOTFILES_PATH}/.config/doom" "${HOME}/.config/doom"
   "${HOME}/.config/emacs/bin/doom" sync
 }
 
 install_vim() {
-  ln -sf "${DOTFILES_PATH}/.vim" "${HOME}/"
-  ln -sf "${DOTFILES_PATH}/.vimrc" "${HOME}/"
+  link_path "${DOTFILES_PATH}/.vim" "${HOME}/.vim"
+  link_path "${DOTFILES_PATH}/.vimrc" "${HOME}/.vimrc"
 }
 
 install_nvim() {
-  ln -sf "${DOTFILES_PATH}/.config/nvim" "${HOME}/.config/"
+  link_path "${DOTFILES_PATH}/.config/nvim" "${HOME}/.config/nvim"
 }
 
 install_tmux() {
   git -C "${HOME}/.tmux" pull ||
     git clone https://github.com/gpakosz/.tmux.git "${HOME}/.tmux"
-  ln -sf "${HOME}/.tmux/.tmux.conf" "${HOME}/"
-  cp "${HOME}/.tmux/.tmux.conf.local" "${HOME}/"
+  link_path "${HOME}/.tmux/.tmux.conf" "${HOME}/.tmux.conf"
+  if [[ ! -e "${HOME}/.tmux.conf.local" ]]; then
+    cp "${HOME}/.tmux/.tmux.conf.local" "${HOME}/"
+  fi
 }
 
 install_gpg() {
-  ln -sf "${DOTFILES_PATH}/.gnupg/gpg.conf" "${HOME}/.gnupg/"
-  ln -sf "${DOTFILES_PATH}/.gnupg/gpg-agent.conf" "${HOME}/.gnupg/"
-  ln -sf "${DOTFILES_PATH}/.gnupg/pinentry-auto" "${HOME}/.gnupg/"
+  link_path "${DOTFILES_PATH}/.gnupg/gpg.conf" "${HOME}/.gnupg/gpg.conf"
+  link_path "${DOTFILES_PATH}/.gnupg/gpg-agent.conf" "${HOME}/.gnupg/gpg-agent.conf"
+  link_path "${DOTFILES_PATH}/.gnupg/pinentry-auto" "${HOME}/.gnupg/pinentry-auto"
 }
 
 install_mbsync() {
-  ln -sf "${DOTFILES_PATH}/.mbsyncrc" "${HOME}/"
+  link_path "${DOTFILES_PATH}/.mbsyncrc" "${HOME}/.mbsyncrc"
 }
 
 install_iterm2() {
@@ -104,7 +156,8 @@ install_iterm2() {
 }
 
 install_rime() {
-  git clone https://github.com/rime/plum.git "${HOME}/.plum"
+  git -C "${HOME}/.plum" pull ||
+    git clone https://github.com/rime/plum.git "${HOME}/.plum"
   bash "${HOME}/.plum/rime-install" iDvel/rime-ice:others/recipes/full
 }
 
@@ -130,7 +183,7 @@ interactive_menu() {
   done
   printf "   a) all\n"
   echo ""
-  read -p "Select modules (e.g. 1 3 5, 1-5, or a): " selection
+  read -r -p "Select modules (e.g. 1 3 5, 1-5, or a): " selection
 
   if [[ "$selection" == "a" ]]; then
     for mod in "${available[@]}"; do

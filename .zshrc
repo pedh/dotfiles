@@ -1,16 +1,19 @@
 # auto detect homebrew prefix
-if [[ x"$(/usr/bin/uname -m)" == x"arm64" ]]
-then
+if type brew > /dev/null; then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+elif [[ x"$(/usr/bin/uname -m)" == x"arm64" ]]; then
   HOMEBREW_PREFIX="/opt/homebrew"
 else
   HOMEBREW_PREFIX="/usr/local"
 fi
 
-source ${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh
+if [[ -r "${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh" ]]; then
+  source "${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh"
+fi
 
 # set LS_COLORS for gnu ls
 if [[ -f ${HOME}/.LS_COLORS ]]; then
-    source ${HOME}/.LS_COLORS
+    source "${HOME}/.LS_COLORS"
 fi
 
 # set extra paths
@@ -28,45 +31,51 @@ path=(/usr/local/sbin
 export PATH
 
 # ohmyzsh libraries and plugins
-zinit wait lucid for \
-      OMZL::completion.zsh \
-      OMZL::directories.zsh \
-      OMZL::key-bindings.zsh \
- atload"if type lsd > /dev/null; then alias ls=lsd; fi" \
-      OMZL::theme-and-appearance.zsh \
-      OMZP::autojump \
-      OMZP::command-not-found \
-      OMZP::fzf \
-      OMZP::git \
-      OMZP::gnu-utils \
-      OMZP::kubectl \
-      OMZP::pip \
-      OMZP::terraform
+if type zinit > /dev/null; then
+  zinit wait lucid for \
+        OMZL::completion.zsh \
+        OMZL::directories.zsh \
+        OMZL::key-bindings.zsh \
+   atload"if type lsd > /dev/null; then alias ls=lsd; fi" \
+        OMZL::theme-and-appearance.zsh \
+        OMZP::autojump \
+        OMZP::command-not-found \
+        OMZP::fzf \
+        OMZP::git \
+        OMZP::gnu-utils \
+        OMZP::kubectl \
+        OMZP::pip \
+        OMZP::terraform
+fi
 
 # provide a simple prompt till the theme loads
 PS1="READY >"
 
 # use p10k theme
-zinit ice depth"1" # git clone depth
-zinit light romkatv/powerlevel10k
+if type zinit > /dev/null; then
+  zinit ice depth"1" # git clone depth
+  zinit light romkatv/powerlevel10k
+fi
 
 # extra plugins
-zinit wait lucid for \
- atinit"
-     zstyle ':completion:*:git-checkout:*' sort false
-     zstyle ':completion:*:descriptions' format '[%d]'
-     zstyle ':completion:*' list-colors \${(s.:.)LS_COLORS}
-     zstyle ':completion:*' menu no
-     zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always \$realpath'
-     zstyle ':fzf-tab:*' switch-group '<' '>'
-" \
-   Aloxaf/fzf-tab \
- atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
-    zsh-users/zsh-completions \
- atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions \
-    wfxr/forgit
+if type zinit > /dev/null; then
+  zinit wait lucid for \
+   atinit"
+       zstyle ':completion:*:git-checkout:*' sort false
+       zstyle ':completion:*:descriptions' format '[%d]'
+       zstyle ':completion:*' list-colors \${(s.:.)LS_COLORS}
+       zstyle ':completion:*' menu no
+       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always \$realpath'
+       zstyle ':fzf-tab:*' switch-group '<' '>'
+  " \
+     Aloxaf/fzf-tab \
+   atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+      zdharma-continuum/fast-syntax-highlighting \
+      zsh-users/zsh-completions \
+   atload"!_zsh_autosuggest_start" \
+      zsh-users/zsh-autosuggestions \
+      wfxr/forgit
+fi
 
 ### personal settings
 ## zsh options
@@ -165,7 +174,7 @@ alias glf="git rev-list --objects --all |
 alias kx="kubectx"
 alias kns="kubens"
 if type "thefuck" > /dev/null; then
-    eval $(thefuck --alias f)
+    eval "$(thefuck --alias f)"
 fi
 
 # Exports
