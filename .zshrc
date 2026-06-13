@@ -39,15 +39,17 @@ if type zinit > /dev/null; then
         OMZL::completion.zsh \
         OMZL::directories.zsh \
         OMZL::key-bindings.zsh \
-   atload"if type lsd > /dev/null; then alias ls=lsd; fi" \
+   atload"if type eza > /dev/null; then alias ls='eza --icons=auto'; fi" \
         OMZL::theme-and-appearance.zsh \
         OMZP::zoxide \
+        OMZP::brew \
         OMZP::command-not-found \
         OMZP::fzf \
+   depth"1" \
+        atuinsh/atuin \
         OMZP::git \
         OMZP::gnu-utils \
         OMZP::kubectl \
-        OMZP::pip \
         OMZP::terraform
 fi
 
@@ -68,7 +70,7 @@ if type zinit > /dev/null; then
        zstyle ':completion:*:descriptions' format '[%d]'
        zstyle ':completion:*' list-colors \${(s.:.)LS_COLORS}
        zstyle ':completion:*' menu no
-       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always \$realpath'
+       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons=auto \$realpath'
        zstyle ':fzf-tab:*' switch-group '<' '>'
   " \
      Aloxaf/fzf-tab \
@@ -176,11 +178,13 @@ alias glf="git rev-list --objects --all |
   $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest"
 alias kx="kubectx"
 alias kns="kubens"
+if type atuin > /dev/null; then
+  alias hh='atuin search -i'
+fi
 
 # Exports
 export EDITOR='emacsclient -nw -s term'
 export ALTERNATE_EDITOR='nvim'
-export DISPLAY=":0.0"
 export BAT_THEME=zenburn
 export GPG_TTY=$(tty)
 export PINENTRY_USER_DATA="USE_TTY=1"

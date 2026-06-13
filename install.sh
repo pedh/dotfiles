@@ -149,8 +149,15 @@ EOF
 }
 
 install_dircolors() {
-  local dircolors_cmd="dircolors"
-  type -p dircolors || dircolors_cmd="gdircolors"
+  local dircolors_cmd
+  if type -p dircolors > /dev/null; then
+    dircolors_cmd="dircolors"
+  elif type -p gdircolors > /dev/null; then
+    dircolors_cmd="gdircolors"
+  else
+    echo "dircolors or gdircolors is required. Install coreutils first." >&2
+    return 1
+  fi
   ${dircolors_cmd} -b "${DOTFILES_PATH}/.dircolors" > "${HOME}/.LS_COLORS"
 }
 

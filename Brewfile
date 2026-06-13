@@ -85,10 +85,11 @@ cask "pluk-inc/tap/markdown-preview"
 
 # CLI navigation, search, and inspection.
 brew "zoxide"
+brew "atuin"
 brew "bat"
 brew "fd"
 brew "fzf"
-brew "lsd"
+brew "eza"
 brew "agg"
 brew "asciinema"
 brew "mas"
@@ -164,7 +165,7 @@ brew "tmux"
 
 # Build and native toolchain.
 brew "cmake"
-brew "llvm", link: true
+brew "llvm"
 brew "lld"
 brew "bear"
 brew "meson"
