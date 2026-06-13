@@ -3,9 +3,12 @@
 set -e
 
 DOTFILES_PATH="$(git rev-parse --show-toplevel)"
+ASSUME_YES=false
 
-MODULES=(brew git dircolors zshrc emacs vim nvim tmux gpg mbsync iterm2 rime)
-MACOS_ONLY=(brew iterm2 rime)
+INSTALL_MODULES=(brew git dircolors zshrc emacs vim nvim tmux gpg mbsync iterm2)
+UTILITY_MODULES=(brew-base brew-cleanup)
+MODULES=("${INSTALL_MODULES[@]}" "${UTILITY_MODULES[@]}")
+MACOS_ONLY=(brew brew-base brew-cleanup iterm2)
 
 is_macos() {
   [[ "$(uname)" == "Darwin" ]]
@@ -60,13 +63,60 @@ link_path() {
   ln -s "$source" "$target"
 }
 
+collect_brew_bundle_files() {
+  BREW_BUNDLE_FILES=("${DOTFILES_PATH}/Brewfile")
+
+  local profile_file
+
+  for profile_file in "${DOTFILES_PATH}"/Brewfile.*; do
+    [[ -f "$profile_file" ]] || continue
+    [[ "$(basename "$profile_file")" == "Brewfile.lock.json" ]] && continue
+    BREW_BUNDLE_FILES+=("$profile_file")
+  done
+}
+
+brew_bundle_with_profiles() {
+  local subcommand="$1"
+  shift
+
+  collect_brew_bundle_files || return 1
+  cat "${BREW_BUNDLE_FILES[@]}" | brew bundle "$subcommand" --file=- "$@"
+}
+
+brew_bundle_check_with_profiles() {
+  brew_bundle_with_profiles check --verbose --no-upgrade
+}
+
+install_brew_base() {
+  if [[ "$ASSUME_YES" == true ]]; then
+    brew bundle install --no-upgrade --file="${DOTFILES_PATH}/Brewfile"
+    return
+  fi
+
+  echo "Checking base Brewfile only. Pass --yes to install."
+  brew bundle check --verbose --no-upgrade --file="${DOTFILES_PATH}/Brewfile"
+}
+
 install_brew() {
-  brew bundle --file="${DOTFILES_PATH}/Brewfile"
-  # Trust all third-party taps declared in Brewfile
-  grep '^tap ' "${DOTFILES_PATH}/Brewfile" | awk '{gsub(/"/, "", $2); print $2}' |
-    while read -r tap; do
-      brew trust "$tap" 2>/dev/null || true
-    done
+  if [[ "$ASSUME_YES" == true ]]; then
+    brew_bundle_with_profiles install --no-upgrade
+    return
+  fi
+
+  echo "Checking Brewfile profiles only. Pass --yes to install."
+  brew_bundle_check_with_profiles
+}
+
+install_brew_cleanup() {
+  if [[ "$ASSUME_YES" == true ]]; then
+    brew_bundle_with_profiles cleanup --all --force
+    return
+  fi
+
+  if ! brew_bundle_with_profiles cleanup --all; then
+    echo "Review the cleanup preview above."
+    echo "Run ./install.sh brew-cleanup --yes to apply it."
+  fi
 }
 
 install_git() {
@@ -155,22 +205,17 @@ install_iterm2() {
   defaults write -app iterm "NoSyncNeverRemindPrefsChangesLostForFile_selection" -int 2
 }
 
-install_rime() {
-  git -C "${HOME}/.plum" pull ||
-    git clone https://github.com/rime/plum.git "${HOME}/.plum"
-  bash "${HOME}/.plum/rime-install" iDvel/rime-ice:others/recipes/full
-}
-
 run_module() {
   local mod="$1"
+  local fn="install_${mod//-/_}"
   can_run "$mod" || return 0
-  echo "==> Installing $mod"
-  "install_${mod}"
+  echo "==> Running $mod"
+  "$fn"
 }
 
 interactive_menu() {
   local available=()
-  for mod in "${MODULES[@]}"; do
+  for mod in "${INSTALL_MODULES[@]}"; do
     if is_macos_only "$mod" && ! is_macos; then
       continue
     fi
@@ -210,8 +255,26 @@ interactive_menu() {
   done
 }
 
-if [[ $# -gt 0 ]]; then
-  for mod in "$@"; do
+ARGS=()
+for arg in "$@"; do
+  case "$arg" in
+    --yes)
+      ASSUME_YES=true
+      ;;
+    --)
+      ;;
+    --*)
+      echo "Unknown option: $arg"
+      exit 1
+      ;;
+    *)
+      ARGS+=("$arg")
+      ;;
+  esac
+done
+
+if [[ ${#ARGS[@]} -gt 0 ]]; then
+  for mod in "${ARGS[@]}"; do
     if printf '%s\n' "${MODULES[@]}" | grep -qx "$mod"; then
       run_module "$mod"
     else

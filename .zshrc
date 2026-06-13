@@ -30,6 +30,9 @@ path=(/usr/local/sbin
       $path)
 export PATH
 
+# Keep autojump muscle memory while using zoxide.
+export ZOXIDE_CMD_OVERRIDE="j"
+
 # ohmyzsh libraries and plugins
 if type zinit > /dev/null; then
   zinit wait lucid for \
@@ -38,7 +41,7 @@ if type zinit > /dev/null; then
         OMZL::key-bindings.zsh \
    atload"if type lsd > /dev/null; then alias ls=lsd; fi" \
         OMZL::theme-and-appearance.zsh \
-        OMZP::autojump \
+        OMZP::zoxide \
         OMZP::command-not-found \
         OMZP::fzf \
         OMZP::git \
@@ -173,9 +176,6 @@ alias glf="git rev-list --objects --all |
   $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest"
 alias kx="kubectx"
 alias kns="kubens"
-if type "thefuck" > /dev/null; then
-    eval "$(thefuck --alias f)"
-fi
 
 # Exports
 export EDITOR='emacsclient -nw -s term'

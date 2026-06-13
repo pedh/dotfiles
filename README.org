@@ -8,10 +8,25 @@ Clone this repo to ~/.dotfiles
 #+begin_src
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 #+end_src
-2. Install homebrew packages
+2. Check and install homebrew packages
 #+begin_src
-$ cd ~/.dotfiles && brew bundle
+$ cd ~/.dotfiles && ./install.sh brew
+$ ./install.sh brew --yes
 $ brew autoupdate start 43200 --upgrade --cleanup --immediate --sudo
+#+end_src
+The =brew= module checks the base =Brewfile= plus every =Brewfile.*= profile except =Brewfile.lock.json=. Pass =--yes= to install.
+Check or install only the base Brewfile:
+#+begin_src
+$ ./install.sh brew-base
+$ ./install.sh brew-base --yes
+#+end_src
+Preview Homebrew cleanup against the combined Brewfile profiles:
+#+begin_src
+$ ./install.sh brew-cleanup
+#+end_src
+Apply the cleanup preview:
+#+begin_src
+$ ./install.sh brew-cleanup --yes
 #+end_src
 ** install.sh
 Install all modules interactively:
@@ -22,7 +37,8 @@ Or install specific modules:
 #+begin_src
 $ ./install.sh git zshrc emacs
 #+end_src
-Available modules: brew (macOS), git, dircolors, zshrc, emacs, vim, nvim, tmux, gpg, mbsync, iterm2 (macOS), rime (macOS).
+Available install modules: brew (macOS), git, dircolors, zshrc, emacs, vim, nvim, tmux, gpg, mbsync, iterm2 (macOS).
+Utility modules: brew-base (macOS), brew-cleanup (macOS).
 ** post-install
 1. Configure powerlevel10k theme
 #+begin_src
@@ -30,7 +46,7 @@ $ p10k configure
 #+end_src
 2. Install DejaVu Sans font.
 3. Restore ~/.password-store, ~/notes/org and etc.
-4. Install kubernetes krew plugins
+4. Import autojump history into zoxide once:
 #+begin_src
-$ kubectl krew install < ~/.dotfiles/.krew-list.txt
+$ zoxide import --from autojump ~/Library/autojump/autojump.txt
 #+end_src

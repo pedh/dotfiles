@@ -1,13 +1,8 @@
-# Install GNU core utilities (those that come with macOS are outdated).
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+# GNU userland.
 brew "coreutils"
-# Install some other useful utilities like `sponge`.
 brew "moreutils"
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew "findutils"
-# Install GNU `sed`, overwriting the built-in `sed`.
 brew "gnu-sed"
-# Some more GNU utils.
 brew "diffutils"
 brew "inetutils"
 brew "gnutls"
@@ -15,234 +10,202 @@ brew "gawk"
 brew "gnu-tar"
 brew "gzip"
 brew "make"
-brew "wdiff"
-brew "gnu-indent"
 brew "gnu-which"
 brew "man-db"
-# Install a modern version of Bash.
+brew "autoconf"
 brew "bash"
 brew "bash-completion@2"
-
-# Install fonts.
-cask "font-meslo-lg-nerd-font"
-cask "font-symbols-only-nerd-font"
-cask "font-dejavu"
-tap "pedh/monaco-nerd-fonts"
-cask "font-monaco-nerd-font"
-
-# Install zsh and zinit.
 brew "zsh"
 brew "zinit"
 
-# Install essential applications.
+# Fonts.
+cask "font-meslo-lg-nerd-font"
+cask "font-symbols-only-nerd-font"
+cask "font-dejavu"
+tap "pedh/monaco-nerd-fonts", trusted: true
+cask "font-monaco-nerd-font"
+
+# Essential applications.
 cask "iterm2"
 cask "google-chrome"
 cask "arc"
 cask "warp"
-
-# Editors.
-tap "d12frosted/emacs-plus"
-cask "emacs-plus-app"
-brew "neovim"
-cask "cursor"
-
-# Awesome MacOS applications.
 cask "mos"
-cask "thaw@beta"
-cask "free-download-manager"
 cask "beyond-compare"
 cask "raycast"
 cask "stats"
-cask "flux-app"
 cask "betterdisplay"
-cask "xquartz"
-cask "pearcleaner"
-cask "onyx"
-cask "wetype"
+
+# Editors.
+tap "d12frosted/emacs-plus", trusted: true
+cask "emacs-plus-app"
+brew "neovim"
+cask "cursor"
 
 # Security.
 cask "keepassxc"
 brew "pass"
 
-# Install network tools.
+# Network tools.
 brew "wget"
-cask "charles"
-cask "wireshark-app"
-cask "postman"
+brew "curl"
 brew "httpie"
 brew "aria2"
 brew "tcpdump"
 brew "iperf3"
-brew "proxychains-ng"
 brew "mtr"
+brew "net-snmp"
 brew "nexttrace"
 brew "ipinfo-cli"
+brew "bandwhich"
 brew "grpcurl"
 brew "websocat"
-brew "bandwhich"
-brew "netdata"
 brew "nginx"
 brew "oha"
-brew "sshuttle"
-brew "gost"
-brew "doh"
 
-# Install more recent versions of some macOS tools.
+# Modern macOS tools.
 brew "vim"
 brew "grep"
 brew "openssh"
 brew "screen"
-brew "php"
-brew "gmp"
 
 # Homebrew.
-tap "domt4/autoupdate"
+tap "domt4/autoupdate", trusted: true
 
-# Document tools.
+# Documents and diagrams.
 brew "d2"
 brew "graphviz"
 brew "plantuml"
-cask "calibre"
-cask "mactex"
+brew "mermaid-cli"
 cask "drawio"
-cask "excalidrawz"
-cask "inkscape"
-cask "logseq"
-cask "xournal++"
-cask "zotero"
 brew "pandoc"
 brew "hugo"
-brew "manim"
+tap "pluk-inc/tap", trusted: true
+cask "pluk-inc/tap/markdown-preview"
 
-# Awesome command line tools.
-brew "autojump"
+# CLI navigation, search, and inspection.
+brew "zoxide"
 brew "bat"
 brew "fd"
 brew "fzf"
 brew "lsd"
 brew "agg"
 brew "asciinema"
+brew "mas"
 brew "htop"
-brew "gotop"
 brew "btop"
-brew "bottom"
 brew "pstree"
 brew "procs"
 brew "tlrc"
 brew "magic-wormhole"
-brew "mycli"
-brew "mas"
-brew "pgcli"
-brew "the_silver_searcher"
 brew "ripgrep"
 brew "ast-grep"
 brew "lsusb"
-brew "thefuck"
+brew "argon2"
 brew "shellcheck"
 brew "jq"
 brew "yq"
+brew "pngpaste"
 brew "duckdb"
 brew "cloc"
-brew "mu"
-brew "isync"
 brew "m-cli"
 brew "diskonaut"
 brew "dust"
 brew "fblog"
-brew "ispell"
-brew "cspell"
 brew "autossh"
 brew "hwloc"
 brew "rpm"
 brew "sysdig"
 brew "witr"
 brew "terminal-notifier"
+brew "lynx"
+brew "pv"
+brew "tree"
+brew "gdu"
+brew "zizmor"
 
-# Install other useful binaries.
-brew "ack"
-brew "exiv2"
-brew "ffmpegthumbnailer"
+# Mail, writing, and spelling.
+brew "mu"
+brew "isync"
+brew "cspell"
+brew "languagetool"
+
+# Git and source control.
 brew "git"
 brew "git-lfs"
 brew "git-extras"
 brew "git-crypt"
 brew "git-delta"
-brew "git-flow"
+brew "git-flow-next"
 brew "gitup"
-brew "gitui"
 brew "gitlint"
 brew "gh"
-brew "global"
+brew "lazygit"
+
+# Data, media, and archive processing.
+brew "exiv2"
+brew "ffmpegthumbnailer"
 brew "gs"
 brew "imagemagick"
-brew "lua"
-brew "lynx"
+brew "mycli"
+brew "pgcli"
 brew "lzip"
 brew "media-info"
 brew "p7zip"
 brew "pigz"
 brew "poppler"
-brew "pv"
 brew "rename"
+brew "yt-dlp"
+
+# Shell and terminal helpers.
 brew "rlwrap"
 brew "ssh-copy-id"
-brew "tree"
-brew "vbindiff"
-brew "zopfli"
 brew "tmux"
-cask "cmake-app"
-brew "llvm", link: :force
+
+# Build and native toolchain.
+brew "cmake"
+brew "llvm", link: true
 brew "lld"
 brew "bear"
 brew "meson"
+brew "flamegraph"
+tap "mysticlgbt/made", trusted: true
 brew "mysticlgbt/made/mac-linux-kdk"
 brew "editorconfig"
-brew "languagetool"
 brew "smartmontools"
-brew "lazygit"
-brew "gdu"
-brew "compiledb"
 
-# Python packages.
+# Python.
 brew "python"
-brew "ipython"
-brew "ansible"
-brew "python-lsp-server"
-brew "pyenv"
-brew "poetry"
-brew "pipenv"
 brew "uv"
 brew "ruff"
-brew "pytest"
 
-# Golang packages.
+# Go.
 brew "go"
+brew "buf"
+brew "delve"
+brew "gofumpt"
+brew "goimports"
+brew "golines"
+brew "gopls"
 brew "golangci-lint"
+brew "gomodifytags"
 brew "protobuf"
-brew "gops"
+brew "protoc-gen-go"
+brew "protoc-gen-go-grpc"
+brew "staticcheck"
 
-# Various programming languages.
+# Languages and language servers.
 brew "deno"
 brew "rustup"
-brew "rust-analyzer"
-brew "ghcup"
-brew "sbcl"
-brew "guile"
 brew "npm"
-brew "stylelint"
+brew "pnpm"
 brew "yaml-language-server"
 brew "bash-language-server"
 brew "shfmt"
 brew "terraform-ls"
 brew "markdownlint-cli2"
-brew "elan-init"
 
-# Cross compiling.
-tap "messense/macos-cross-toolchains"
-brew "messense/macos-cross-toolchains/x86_64-unknown-linux-gnu"
-brew "messense/macos-cross-toolchains/aarch64-unknown-linux-gnu"
-
-# Kubernetes cli packages.
+# Kubernetes.
 brew "kubernetes-cli"
 brew "krew"
 brew "kubectx"
@@ -250,58 +213,9 @@ brew "helm"
 brew "kubebuilder"
 brew "k9s"
 
-# Install GnuPG to enable PGP-signing commits.
+# GnuPG for PGP-signing commits.
 brew "gnupg"
-cask "gpg-suite"
 brew "pinentry-mac"
-
-# Install some CTF tools; see https://github.com/ctfs/write-ups.
-brew "aircrack-ng"
-brew "bfg"
-brew "binutils"
-brew "binwalk"
-brew "cifer"
-brew "dex2jar"
-brew "dns2tcp"
-brew "fcrackzip"
-brew "foremost"
-brew "hydra"
-brew "john"
-brew "knock"
-brew "netpbm"
-brew "nmap"
-brew "pngcheck"
-brew "socat"
-brew "sqlmap"
-brew "tcpflow"
-brew "tcpreplay"
-brew "ucspi-tcp" # `tcpserver` etc.
-brew "xz"
-brew "radare2"
-cask "cutter"
-brew "flamegraph"
-brew "pngpaste"
-brew "yt-dlp"
-
-# Install font tools.
-tap "bramstein/webfonttools"
-brew "sfnt2woff"
-brew "sfnt2woff-zopfli"
-brew "woff2"
-
-# Markdown.
-tap "pluk-inc/tap"
-cask "pluk-inc/tap/markdown-preview"
-
-# Multimedia.
-cask "kodi"
-cask "krita"
-cask "wacom-tablet"
-cask "listen1"
-cask "transmission"
-
-# Language tools.
-cask "squirrel-app"
 
 # Cloud computing.
 brew "awscli"
@@ -309,7 +223,6 @@ brew "azure-cli"
 cask "gcloud-cli"
 brew "aliyun-cli"
 brew "cloudflared"
-brew "googleworkspace-cli"
 
 # AI tools.
 cask "claude"
@@ -317,13 +230,12 @@ cask "claude-code@latest"
 cask "codex"
 cask "codex-app"
 brew "agent-browser"
-tap "steipete/tap"
+tap "steipete/tap", trusted: true
 brew "steipete/tap/mcporter"
 brew "summarize"
 brew "steipete/tap/remindctl"
-tap "openclaw/tap"
+tap "openclaw/tap", trusted: true
 brew "openclaw/tap/gogcli"
-tap "antoniorodr/memo"
+tap "antoniorodr/memo", trusted: true
 brew "antoniorodr/memo/memo"
 cask "cc-pocket"
-

@@ -1,0 +1,33 @@
+# Security, reverse engineering, CTF, and advanced network diagnostics.
+brew "proxychains-ng"
+brew "sshuttle"
+brew "gost"
+brew "doh"
+brew "aircrack-ng"
+brew "bfg"
+brew "binutils"
+brew "binwalk"
+brew "cifer"
+brew "dex2jar"
+brew "dns2tcp"
+brew "fcrackzip"
+brew "foremost"
+brew "hydra"
+brew "john"
+brew "knock"
+brew "netpbm"
+brew "nmap"
+brew "pngcheck"
+brew "socat"
+brew "sqlmap"
+brew "tcpflow"
+brew "tcpreplay"
+brew "ucspi-tcp" # `tcpserver` etc.
+brew "xz"
+brew "radare2"
+cask "cutter"
+
+# Cross compiling.
+tap "messense/macos-cross-toolchains", trusted: true
+brew "messense/macos-cross-toolchains/x86_64-unknown-linux-gnu"
+brew "messense/macos-cross-toolchains/aarch64-unknown-linux-gnu"
