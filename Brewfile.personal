@@ -1,17 +1,25 @@
-# Personal GUI applications.
+# Menu bar management.
 cask "thaw@beta"
+
+# Input methods.
 cask "wetype"
+
+# System maintenance.
 brew "mole"
 tap "caezium/tap", trusted: true
 cask "caezium/tap/burrow"
 
-# Personal AI applications.
+# AI applications.
 cask "claude-code@latest"
 cask "claude"
 cask "codex-app"
+
+# Agent support tools.
 brew "summarize"
 tap "steipete/tap", trusted: true
 brew "steipete/tap/mcporter"
+
+# Terminal recording and demos.
 brew "asciinema"
 brew "agg"
 
@@ -37,38 +45,52 @@ cask "xquartz"
 cask "charles"
 cask "wireshark-app"
 cask "postman"
+
+# File transfer tools.
 brew "aria2"
 brew "magic-wormhole"
 
 # GPG GUI.
 cask "gpg-suite"
 
-# Personal language ecosystems.
+# Language toolchains.
 brew "ghcup"
-brew "sbcl"
-brew "guile"
-brew "rlwrap"
 brew "elan-init"
 brew "rustup"
+
+# Language runtimes.
+brew "sbcl"
+brew "guile"
 brew "deno"
+
+# Language editing helpers.
+brew "rlwrap"
 brew "golines"
 brew "gomodifytags"
 
-# Personal cloud and workspace tools.
+# Git and repository workflow.
 brew "gitup"
 brew "fblog"
+
+# Disk and codebase inspection.
 brew "flamegraph"
 brew "witr"
 brew "diskonaut"
 brew "gdu"
 brew "cloc"
+
+# Database clients.
 brew "mycli"
 brew "pgcli"
+
+# Cloud CLIs.
 brew "awscli"
 brew "azure-cli"
 cask "gcloud-cli"
 brew "aliyun-cli"
 brew "cloudflared"
+
+# Workspace and internal tools.
 brew "googleworkspace-cli"
 brew "steipete/tap/remindctl"
 tap "openclaw/tap", trusted: true
@@ -76,12 +98,16 @@ brew "openclaw/tap/gogcli"
 tap "antoniorodr/memo", trusted: true
 brew "antoniorodr/memo/memo"
 
-# Infrastructure and automation.
+# Infrastructure as code.
 brew "ansible"
 brew "opentofu"
 brew "terraform-ls"
-brew "bear"
+
+# Kubernetes development.
 brew "kubebuilder"
+
+# Build introspection.
+brew "bear"
 
 # Kernel and platform toolchains.
 tap "gay-pizza/made", trusted: true
@@ -90,12 +116,16 @@ brew "gay-pizza/made/mac-linux-kdk"
 # Font tools.
 brew "woff2"
 
-# Multimedia, hardware, and input methods.
+# Media applications.
 cask "neteasemusic"
 cask "krita"
+
+# Creative hardware and profiling tools.
 cask "wacom-tablet"
 cask "logitech-g-hub"
 cask "nvidia-nsight-systems"
+
+# Media CLI tools.
 brew "exiv2"
 brew "ffmpegthumbnailer"
 brew "media-info"
@@ -147,23 +177,33 @@ vscode "ultram4rine.vscode-choosealicense"
 vscode "vadimcn.vscode-lldb"
 vscode "zxh404.vscode-proto3"
 
-# Go tools.
+# Coverage tools.
 go "github.com/boumenot/gocover-cobertura"
+
+# Kubernetes code generators.
 go "k8s.io/code-generator/cmd/applyconfiguration-gen"
 go "k8s.io/code-generator/cmd/client-gen"
-go "github.com/containernetworking/cni/cnitool"
-go "sigs.k8s.io/controller-tools/cmd/controller-gen"
 go "k8s.io/code-generator/cmd/deepcopy-gen"
 go "k8s.io/code-generator/cmd/defaulter-gen"
-go "sigs.k8s.io/controller-tools/cmd/helpgen"
 go "k8s.io/code-generator/cmd/informer-gen"
 go "k8s.io/code-generator/cmd/lister-gen"
-go "go.uber.org/mock/mockgen"
-go "sigs.k8s.io/controller-runtime/tools/setup-envtest"
-go "sigs.k8s.io/controller-tools/cmd/type-scaffold"
 
-# uv tools.
+# Controller tooling.
+go "sigs.k8s.io/controller-tools/cmd/controller-gen"
+go "sigs.k8s.io/controller-tools/cmd/helpgen"
+go "sigs.k8s.io/controller-tools/cmd/type-scaffold"
+go "sigs.k8s.io/controller-runtime/tools/setup-envtest"
+
+# CNI utilities.
+go "github.com/containernetworking/cni/cnitool"
+
+# Test and mock tools.
+go "go.uber.org/mock/mockgen"
+
+# Python coverage tools.
 uv "diff-cover"
+
+# Work Python tools.
 uv "maxc-cli"
 uv "maxcompute-semantic"
 uv "skill-seekers"
