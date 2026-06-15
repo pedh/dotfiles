@@ -91,6 +91,7 @@ brew "gay-pizza/made/mac-linux-kdk"
 brew "woff2"
 
 # Multimedia, hardware, and input methods.
+cask "neteasemusic"
 cask "krita"
 cask "wacom-tablet"
 cask "logitech-g-hub"

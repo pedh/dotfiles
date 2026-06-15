@@ -134,19 +134,6 @@ brewfile_entries() {
   ' "$type" "${BREW_BUNDLE_FILES[@]}"
 }
 
-preview_brewfile_entries() {
-  local type="$1"
-  local title="$2"
-  local entries
-
-  entries="$(brewfile_entries "$type")"
-  [[ -n "$entries" ]] || return 0
-
-  echo ""
-  echo "${title}:"
-  printf '%s\n' "$entries" | sed 's/^/  /'
-}
-
 preview_brewfile_entry_count() {
   local type="$1"
   local title="$2"
