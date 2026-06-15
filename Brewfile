@@ -6,35 +6,55 @@ brew "gnu-sed"
 brew "diffutils"
 brew "gawk"
 brew "gnu-tar"
+brew "grep"
 
 # Shell runtimes.
 brew "bash"
 brew "bash-completion@2"
 brew "zsh"
+
+# Shell plugin manager.
 brew "zinit"
 
-# Fonts.
+# Nerd fonts.
 cask "font-meslo-lg-nerd-font"
 cask "font-symbols-only-nerd-font"
-cask "font-dejavu"
 tap "pedh/monaco-nerd-fonts", trusted: true
 cask "font-monaco-nerd-font"
 
-# Essential applications.
+# Regular fonts.
+cask "font-dejavu"
+
+# Terminal applications.
 cask "iterm2"
+cask "warp"
+
+# Browsers.
 cask "google-chrome"
 cask "arc"
-cask "warp"
+
+# Input and launcher utilities.
 cask "mos"
-cask "beyond-compare"
 cask "raycast"
-cask "stats"
+
+# Display utilities.
 cask "betterdisplay"
 
-# Editors.
+# Productivity applications.
+cask "beyond-compare"
+
+# System monitors.
+cask "stats"
+
+# Emacs.
 tap "d12frosted/emacs-plus", trusted: true
 cask "emacs-plus-app"
+
+# Terminal editors.
+brew "vim"
 brew "neovim"
+
+# AI editor applications.
 cask "cursor"
 
 # Secrets and credentials.
@@ -42,22 +62,26 @@ cask "keepassxc"
 brew "pass"
 brew "argon2"
 
-# Network tools.
+# Download and HTTP clients.
 brew "wget"
 brew "curl"
-brew "gnutls"
 brew "httpie"
+
+# TLS and network libraries.
+brew "gnutls"
+
+# Network diagnostics.
 brew "mtr"
 brew "net-snmp"
 brew "nexttrace"
 brew "ipinfo-cli"
+
+# API and socket clients.
 brew "grpcurl"
 brew "websocat"
-brew "ssh-copy-id"
 
-# Core CLI utilities.
-brew "vim"
-brew "grep"
+# Remote access and sessions.
+brew "ssh-copy-id"
 brew "openssh"
 brew "screen"
 
@@ -67,45 +91,61 @@ brew "terminal-notifier"
 # Package management.
 brew "mas"
 
-# Documents, diagrams, and publishing.
+# Diagramming tools.
 brew "d2"
 brew "graphviz"
 brew "plantuml"
 brew "mermaid-cli"
 cask "drawio"
+
+# Document conversion and publishing.
 brew "pandoc"
-brew "ghostscript"
-brew "poppler"
 brew "hugo"
 tap "pluk-inc/tap", trusted: true
 cask "pluk-inc/tap/markdown-preview"
 
-# CLI navigation, search, and inspection.
+# PDF and image document tooling.
+brew "ghostscript"
+brew "poppler"
+
+# Shell history and navigation.
 brew "zoxide"
 brew "atuin"
-brew "bat"
-brew "fd"
 brew "fzf"
-brew "eza"
+
+# Search and file discovery.
+brew "fd"
 brew "ripgrep"
+
+# File listing and viewers.
+brew "bat"
+brew "eza"
 brew "tree"
 
 # Structured data tools.
 brew "jq"
 brew "yq"
 
-# Process and disk inspection.
+# Process inspection.
 brew "htop"
 brew "btop"
 brew "pstree"
 brew "procs"
 brew "gops"
+
+# Disk usage tools.
 brew "dust"
 
-# Code analysis and linting.
+# Structural code search and rewrite.
 brew "ast-grep"
+
+# Shell linting.
 brew "shellcheck"
+
+# CI and repository linting.
 brew "zizmor"
+
+# Markdown linting.
 brew "markdownlint-cli2"
 
 # Hardware and system diagnostics.
@@ -119,56 +159,78 @@ brew "cspell"
 # Database tools.
 brew "duckdb"
 
-# Git and source control.
+# Git core.
 brew "git"
 brew "git-lfs"
+
+# Git workflow helpers.
 brew "git-extras"
-brew "git-crypt"
 brew "git-delta"
-brew "gitlint"
 brew "gh"
 brew "lazygit"
 
-# Data, media, and archive processing.
+# Git security and policy.
+brew "git-crypt"
+brew "gitlint"
+
+# Image processing and clipboard capture.
 brew "imagemagick"
 brew "pngpaste"
+
+# Archive and compression tools.
 brew "gzip"
 brew "lzip"
 brew "p7zip"
 brew "pigz"
-brew "rename"
 brew "xz"
 
-# Shell and terminal helpers.
+# File renaming tools.
+brew "rename"
+
+# Shell help and command helpers.
 brew "tlrc"
 brew "pv"
+
+# Terminal multiplexing.
 brew "tmux"
 
-# Build and native toolchain.
+# Build systems.
 brew "make"
-brew "autoconf"
 brew "cmake"
-brew "llvm"
-brew "lld"
 brew "meson"
 
-# Python.
+# Native toolchain.
+brew "autoconf"
+brew "llvm"
+brew "lld"
+
+# Python runtime and package tools.
 brew "python"
 brew "uv"
+
+# Python linting and formatting.
 brew "ruff"
 
-# Go.
+# Go runtime.
 brew "go"
+
+# Go debugging and editor support.
 brew "delve"
+brew "gopls"
+
+# Go formatting and imports.
 brew "gofumpt"
 brew "goimports"
-brew "gopls"
+
+# Go linting.
 brew "golangci-lint"
 brew "staticcheck"
 
 # Protocol buffers.
 brew "protobuf"
 brew "buf"
+
+# Protocol buffer Go plugins.
 brew "protoc-gen-go"
 brew "protoc-gen-go-grpc"
 
@@ -176,23 +238,31 @@ brew "protoc-gen-go-grpc"
 brew "node"
 brew "pnpm"
 
-# Language servers and formatters.
+# Language servers.
 brew "yaml-language-server"
 brew "bash-language-server"
+
+# Formatters and editor config.
 brew "shfmt"
 brew "editorconfig"
 
-# Kubernetes.
+# Kubernetes core CLI.
 brew "kubernetes-cli"
 brew "krew"
+
+# Kubernetes context and package tools.
 brew "kubectx"
 brew "helm"
+
+# Kubernetes terminal UI.
 brew "k9s"
 
 # GnuPG for PGP-signing commits.
 brew "gnupg"
 brew "pinentry-mac"
 
-# AI tools.
+# AI CLI applications.
 cask "codex"
+
+# AI support tools.
 brew "agent-browser"
