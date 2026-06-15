@@ -25,6 +25,7 @@ path=(/usr/local/sbin
       ${HOME}/go/bin
       ${HOME}/.krew/bin
       ${HOME}/.ghcup/bin
+      ${HOMEBREW_PREFIX}/opt/rustup/bin
       ${HOME}/.cargo/bin
       ${HOME}/.local/bin
       $path)
@@ -33,24 +34,53 @@ export PATH
 # Keep autojump muscle memory while using zoxide.
 export ZOXIDE_CMD_OVERRIDE="j"
 
+set_eza_ls_alias() {
+    if type eza > /dev/null; then
+        alias ls='eza --icons=auto'
+    fi
+}
+
+restore_atuin_key_bindings() {
+    (( ${+widgets[atuin-search]} )) || return 0
+    bindkey -M emacs '^r' atuin-search
+    bindkey -M viins '^r' atuin-search-viins
+    bindkey -M vicmd '/' atuin-search
+    bindkey -M emacs '^[[A' atuin-up-search
+    bindkey -M viins '^[[A' atuin-up-search-viins
+    bindkey -M vicmd '^[[A' atuin-up-search-vicmd
+    bindkey -M emacs '^[OA' atuin-up-search
+    bindkey -M viins '^[OA' atuin-up-search-viins
+    bindkey -M vicmd '^[OA' atuin-up-search-vicmd
+    bindkey -M vicmd 'k' atuin-up-search-vicmd
+}
+
 # ohmyzsh libraries and plugins
 if type zinit > /dev/null; then
   zinit wait lucid for \
         OMZL::completion.zsh \
         OMZL::directories.zsh \
+   atload"restore_atuin_key_bindings" \
         OMZL::key-bindings.zsh \
-   atload"if type eza > /dev/null; then alias ls='eza --icons=auto'; fi" \
+   atload"set_eza_ls_alias" \
         OMZL::theme-and-appearance.zsh \
-        OMZP::zoxide \
         OMZP::brew \
         OMZP::command-not-found \
+   atload"restore_atuin_key_bindings" \
         OMZP::fzf \
-   depth"1" \
-        atuinsh/atuin \
         OMZP::git \
+   atload"set_eza_ls_alias" \
         OMZP::gnu-utils \
-        OMZP::kubectl \
-        OMZP::terraform
+        OMZP::kubectl
+fi
+set_eza_ls_alias
+
+if type zoxide > /dev/null; then
+    eval "$(zoxide init --cmd "${ZOXIDE_CMD_OVERRIDE:-z}" zsh)"
+fi
+
+if type atuin > /dev/null; then
+    source <(atuin init zsh)
+    restore_atuin_key_bindings
 fi
 
 # provide a simple prompt till the theme loads
@@ -82,6 +112,14 @@ if type zinit > /dev/null; then
       wfxr/forgit
 fi
 
+# OpenTofu's OMZ plugin uses bashcompinit/complete -C, so replay compdefs after loading it.
+if type zinit > /dev/null; then
+  zinit ice lucid \
+    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    atload"zicdreplay -q"
+  zinit snippet OMZP::opentofu
+fi
+
 ### personal settings
 ## zsh options
 # http://zsh.sourceforge.net/Doc/Release/Options.html
@@ -109,6 +147,9 @@ setopt glob_dots               # include dotfiles when globbing
 
 # History
 # http://zsh.sourceforge.net/Doc/Release/Options.html#History
+HISTFILE="${HOME}/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
 setopt append_history          # append to history file
 setopt extended_history        # write the history file in the ':start:elapsed;command' format
 unsetopt hist_beep             # don't beep when attempting to access a missing history entry
@@ -186,8 +227,14 @@ fi
 export EDITOR='emacsclient -nw -s term'
 export ALTERNATE_EDITOR='nvim'
 export BAT_THEME=zenburn
-export GPG_TTY=$(tty)
-export PINENTRY_USER_DATA="USE_TTY=1"
+if tty_path="$(tty 2> /dev/null)" && [[ "$tty_path" != "not a tty" ]]; then
+    export GPG_TTY="$tty_path"
+    export PINENTRY_USER_DATA="USE_TTY=1"
+else
+    unset GPG_TTY
+    unset PINENTRY_USER_DATA
+fi
+unset tty_path
 
 # Other
 backward-kill-dir () {

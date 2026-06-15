@@ -5,33 +5,87 @@ brew "mole"
 tap "caezium/tap", trusted: true
 cask "caezium/tap/burrow"
 
-# Documents, knowledge management, and graphics.
+# Personal AI applications.
+cask "claude-code@latest"
+cask "claude"
+cask "codex-app"
+brew "summarize"
+tap "steipete/tap", trusted: true
+brew "steipete/tap/mcporter"
+brew "asciinema"
+brew "agg"
+
+# Documents and knowledge management.
 cask "calibre"
-cask "excalidrawz"
-cask "xquartz"
-cask "inkscape"
 cask "logseq"
 cask "zotero"
+brew "languagetool"
+
+# Mail.
+brew "mu"
+brew "isync"
+
+# Graphics and visual authoring.
+cask "excalidrawz"
+cask "inkscape"
 brew "manim"
+
+# Compatibility layers.
+cask "xquartz"
 
 # Network GUI and observability tools.
 cask "charles"
 cask "wireshark-app"
 cask "postman"
+brew "aria2"
+brew "magic-wormhole"
 
 # GPG GUI.
 cask "gpg-suite"
 
 # Personal language ecosystems.
-brew "ansible"
-brew "gops"
 brew "ghcup"
 brew "sbcl"
 brew "guile"
+brew "rlwrap"
 brew "elan-init"
+brew "rustup"
+brew "deno"
+brew "golines"
+brew "gomodifytags"
 
 # Personal cloud and workspace tools.
+brew "gitup"
+brew "fblog"
+brew "flamegraph"
+brew "witr"
+brew "diskonaut"
+brew "gdu"
+brew "cloc"
+brew "mycli"
+brew "pgcli"
+brew "awscli"
+brew "azure-cli"
+cask "gcloud-cli"
+brew "aliyun-cli"
+brew "cloudflared"
 brew "googleworkspace-cli"
+brew "steipete/tap/remindctl"
+tap "openclaw/tap", trusted: true
+brew "openclaw/tap/gogcli"
+tap "antoniorodr/memo", trusted: true
+brew "antoniorodr/memo/memo"
+
+# Infrastructure and automation.
+brew "ansible"
+brew "opentofu"
+brew "terraform-ls"
+brew "bear"
+brew "kubebuilder"
+
+# Kernel and platform toolchains.
+tap "gay-pizza/made", trusted: true
+brew "gay-pizza/made/mac-linux-kdk"
 
 # Font tools.
 brew "woff2"
@@ -41,6 +95,10 @@ cask "krita"
 cask "wacom-tablet"
 cask "logitech-g-hub"
 cask "nvidia-nsight-systems"
+brew "exiv2"
+brew "ffmpegthumbnailer"
+brew "media-info"
+brew "yt-dlp"
 
 # Mac App Store.
 mas "Keynote", id: 409183694
@@ -59,7 +117,7 @@ vscode "editorconfig.editorconfig"
 vscode "github.vscode-github-actions"
 vscode "golang.go"
 vscode "gruntfuggly.todo-tree"
-vscode "hashicorp.terraform"
+vscode "OpenTofu.vscode-opentofu"
 vscode "hediet.vscode-drawio"
 vscode "jebbs.plantuml"
 vscode "leanprover.lean4"
@@ -67,7 +125,6 @@ vscode "lextudio.restructuredtext"
 vscode "llvm-vs-code-extensions.vscode-clangd"
 vscode "matklad.pale-fire"
 vscode "ms-azuretools.vscode-containers"
-vscode "ms-azuretools.vscode-docker"
 vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
 vscode "ms-python.debugpy"
 vscode "ms-python.isort"
@@ -79,7 +136,6 @@ vscode "ms-vscode.cpptools"
 vscode "ms-vscode.makefile-tools"
 vscode "openai.chatgpt"
 vscode "pkief.material-icon-theme"
-vscode "qwenlm.qwen-code-vscode-ide-companion"
 vscode "redhat.vscode-yaml"
 vscode "rust-lang.rust-analyzer"
 vscode "streetsidesoftware.code-spell-checker"
@@ -91,6 +147,7 @@ vscode "vadimcn.vscode-lldb"
 vscode "zxh404.vscode-proto3"
 
 # Go tools.
+go "github.com/boumenot/gocover-cobertura"
 go "k8s.io/code-generator/cmd/applyconfiguration-gen"
 go "k8s.io/code-generator/cmd/client-gen"
 go "github.com/containernetworking/cni/cnitool"
@@ -105,6 +162,7 @@ go "sigs.k8s.io/controller-runtime/tools/setup-envtest"
 go "sigs.k8s.io/controller-tools/cmd/type-scaffold"
 
 # uv tools.
+uv "diff-cover"
 uv "maxc-cli"
 uv "maxcompute-semantic"
 uv "skill-seekers"
@@ -156,5 +214,6 @@ krew "tree"
 krew "view-allocations"
 krew "view-secret"
 
-# Global npm packages.
+# Remote agent clients.
+cask "cc-pocket"
 npm "@ccpocket/bridge"
