@@ -1,41 +1,61 @@
-# Security, reverse engineering, and advanced network diagnostics.
+# Certificates and tunneling.
 brew "acme.sh"
 brew "proxychains-ng"
 brew "sshuttle"
 brew "autossh"
 brew "gost"
 brew "stunnel"
+
+# DNS and network diagnostics.
 brew "doh"
-brew "lynx"
-brew "oha"
 brew "bandwhich"
 brew "miniupnpc"
-brew "tcpdump"
 brew "iperf3"
-brew "sysdig"
-brew "aircrack-ng"
-brew "bfg"
-brew "binutils"
-brew "binwalk"
 brew "inetutils"
-brew "rpm"
-brew "dex2jar"
-brew "dns2tcp"
-brew "fcrackzip"
-brew "foremost"
-brew "hydra"
-brew "john"
 brew "knock"
-brew "netpbm"
 brew "nmap"
-brew "pngcheck"
-brew "socat"
-brew "sqlmap"
+
+# Traffic capture and replay.
+brew "tcpdump"
 brew "tcpflow"
 brew "tcpreplay"
+brew "socat"
 brew "ucspi-tcp" # `tcpserver` etc.
+
+# Web and API security testing.
+brew "lynx"
+brew "oha"
+brew "dns2tcp"
+brew "hydra"
+brew "sqlmap"
+
+# Wireless security.
+brew "aircrack-ng"
+
+# Password and archive recovery.
+brew "fcrackzip"
+brew "john"
+
+# Forensics and system tracing.
+brew "foremost"
+brew "sysdig"
+
+# Git history cleanup.
+brew "bfg"
+
+# Reverse engineering and binary analysis.
+brew "binutils"
+brew "binwalk"
+brew "dex2jar"
 brew "radare2"
 cask "cutter"
+
+# Image and document inspection.
+brew "netpbm"
+brew "pngcheck"
+
+# Package and system compatibility tools.
+brew "rpm"
 
 # Cross compiling.
 tap "messense/macos-cross-toolchains", trusted: true

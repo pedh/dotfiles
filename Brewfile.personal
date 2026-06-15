@@ -9,8 +9,10 @@ brew "mole"
 tap "caezium/tap", trusted: true
 cask "caezium/tap/burrow"
 
-# AI applications.
+# AI CLI applications.
 cask "claude-code@latest"
+
+# AI desktop applications.
 cask "claude"
 cask "codex-app"
 
@@ -23,27 +25,35 @@ brew "steipete/tap/mcporter"
 brew "asciinema"
 brew "agg"
 
-# Documents and knowledge management.
+# Reading and reference management.
 cask "calibre"
-cask "logseq"
 cask "zotero"
+
+# Knowledge management.
+cask "logseq"
+
+# Writing assistance.
 brew "languagetool"
 
 # Mail.
 brew "mu"
 brew "isync"
 
-# Graphics and visual authoring.
+# Diagram and drawing applications.
 cask "excalidrawz"
 cask "inkscape"
+
+# Animation and math visualization.
 brew "manim"
 
 # Compatibility layers.
 cask "xquartz"
 
-# Network GUI and observability tools.
+# Network analysis GUIs.
 cask "charles"
 cask "wireshark-app"
+
+# API development GUIs.
 cask "postman"
 
 # File transfer tools.
@@ -63,8 +73,10 @@ brew "sbcl"
 brew "guile"
 brew "deno"
 
-# Language editing helpers.
+# REPL helpers.
 brew "rlwrap"
+
+# Go editing helpers.
 brew "golines"
 brew "gomodifytags"
 
@@ -72,31 +84,41 @@ brew "gomodifytags"
 brew "gitup"
 brew "fblog"
 
-# Disk and codebase inspection.
+# Profiling and trace visualization.
 brew "flamegraph"
 brew "witr"
+
+# Disk usage tools.
 brew "diskonaut"
 brew "gdu"
+
+# Codebase metrics.
 brew "cloc"
 
 # Database clients.
 brew "mycli"
 brew "pgcli"
 
-# Cloud CLIs.
+# Cloud provider CLIs.
 brew "awscli"
 brew "azure-cli"
 cask "gcloud-cli"
 brew "aliyun-cli"
+
+# Cloudflare tooling.
 brew "cloudflared"
 
-# Workspace and internal tools.
+# Workspace automation.
 brew "googleworkspace-cli"
+
+# Personal reminder and memo tools.
 brew "steipete/tap/remindctl"
-tap "openclaw/tap", trusted: true
-brew "openclaw/tap/gogcli"
 tap "antoniorodr/memo", trusted: true
 brew "antoniorodr/memo/memo"
+
+# Internal and private tools.
+tap "openclaw/tap", trusted: true
+brew "openclaw/tap/gogcli"
 
 # Infrastructure as code.
 brew "ansible"
@@ -120,15 +142,21 @@ brew "woff2"
 cask "neteasemusic"
 cask "krita"
 
-# Creative hardware and profiling tools.
+# Creative hardware drivers.
 cask "wacom-tablet"
 cask "logitech-g-hub"
+
+# GPU profiling tools.
 cask "nvidia-nsight-systems"
 
-# Media CLI tools.
+# Media metadata tools.
 brew "exiv2"
-brew "ffmpegthumbnailer"
 brew "media-info"
+
+# Media thumbnail tools.
+brew "ffmpegthumbnailer"
+
+# Media download tools.
 brew "yt-dlp"
 
 # Mac App Store.
