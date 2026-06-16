@@ -34,10 +34,10 @@
 ;; `load-theme' function. This is the default:
 (setq
   doom-theme 'doom-zenburn
-  doom-font (font-spec :family "Monaco" :size 14)
+  doom-font (font-spec :family "Monaco Nerd Font Mono" :size 14)
   doom-variable-pitch-font (font-spec :family "DejaVu Sans" :size 14)
-  doom-big-font (font-spec :family "Monaco" :size 20)
-  doom-symbol-font (font-spec :family "MesloLGS Nerd Font" :size 14)
+  doom-big-font (font-spec :family "Monaco Nerd Font Mono" :size 20)
+  doom-symbol-font (font-spec :family "Monaco Nerd Font Mono" :size 14)
   doom-serif-font (font-spec :family "DejaVu Serif" :size 14))
 
 ;; Change the dashboard banner
