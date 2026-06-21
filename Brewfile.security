@@ -9,6 +9,7 @@ brew "stunnel"
 # DNS and network diagnostics.
 brew "doh"
 brew "bandwhich"
+brew "rustnet"
 brew "miniupnpc"
 brew "iperf3"
 brew "inetutils"
