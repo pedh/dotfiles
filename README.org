@@ -1,52 +1,112 @@
-* Overview
-Dotfiles
-* Installation
-** dotfiles
-Clone this repo to ~/.dotfiles
-** brew (macos only)
-1. Install homebrew
-#+begin_src
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+* Dotfiles
+
+Personal dotfiles and setup scripts. Clone this repository to =~/.dotfiles= before running the installer.
+
+* Install
+
+Run the interactive installer:
+
+#+begin_src sh
+cd ~/.dotfiles
+./install.sh
 #+end_src
-2. Check and install homebrew packages
-#+begin_src
-$ cd ~/.dotfiles && ./install.sh brew
-$ ./install.sh brew --yes
-$ brew autoupdate start 43200 --upgrade --cleanup --immediate --sudo
+
+Install specific modules:
+
+#+begin_src sh
+./install.sh git zshrc vim nvim gpg
 #+end_src
-The =brew= module checks the base =Brewfile= plus every =Brewfile.*= profile except =Brewfile.lock.json=. Pass =--yes= to install.
-Check or install only the base Brewfile:
-#+begin_src
-$ ./install.sh brew-base
-$ ./install.sh brew-base --yes
+
+Install modules:
+
+- =brew= (macOS)
+- =git=
+- =dircolors=
+- =zshrc=
+- =emacs=
+- =vim=
+- =nvim=
+- =tmux=
+- =gpg=
+- =mbsync=
+- =iterm2= (macOS)
+
+* Homebrew
+
+Install Homebrew first if this is a fresh macOS machine:
+
+#+begin_src sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 #+end_src
-Preview Homebrew cleanup against the combined Brewfile profiles:
-#+begin_src
-$ ./install.sh brew-cleanup
+
+Check the base =Brewfile= plus every =Brewfile.*= profile except =Brewfile.lock.json=:
+
+#+begin_src sh
+./install.sh brew
 #+end_src
-Apply the cleanup preview:
-#+begin_src
-$ ./install.sh brew-cleanup --yes
+
+Install missing entries from the combined Brewfile profiles:
+
+#+begin_src sh
+./install.sh brew --yes
 #+end_src
-** install.sh
-Install all modules interactively:
-#+begin_src
-$ ./install.sh
+
+Check or install only the base =Brewfile=:
+
+#+begin_src sh
+./install.sh brew-base
+./install.sh brew-base --yes
 #+end_src
-Or install specific modules:
-#+begin_src
-$ ./install.sh git zshrc emacs
+
+Preview cleanup against the combined Brewfile profiles, then apply it after reviewing the output:
+
+#+begin_src sh
+./install.sh brew-cleanup
+./install.sh brew-cleanup --yes
 #+end_src
-Available install modules: brew (macOS), git, dircolors, zshrc, emacs, vim, nvim, tmux, gpg, mbsync, iterm2 (macOS).
-Utility modules: brew-base (macOS), brew-cleanup (macOS).
-** post-install
-1. Configure powerlevel10k theme
-#+begin_src
-$ p10k configure
+
+Preview and apply managed upgrades. The upgrade command also handles managed Go tools, npm packages, uv tools, Krew plugins, and VSCode/Cursor extensions declared in the Brewfile profiles.
+
+#+begin_src sh
+./install.sh brew-upgrade
+./install.sh brew-upgrade --yes
 #+end_src
-2. Install DejaVu Sans font.
-3. Restore ~/.password-store, ~/notes/org and etc.
+
+Install or remove the weekly macOS LaunchAgent for scheduled upgrades:
+
+#+begin_src sh
+./install.sh brew-schedule
+./install.sh brew-schedule --yes
+./install.sh brew-unschedule
+./install.sh brew-unschedule --yes
+#+end_src
+
+* Verify
+
+Run the smoke test through =bash= because the file is intentionally tracked without the executable bit:
+
+#+begin_src sh
+bash tests/install-smoke.sh
+#+end_src
+
+Lint the shell scripts:
+
+#+begin_src sh
+shellcheck install.sh tests/install-smoke.sh
+#+end_src
+
+* Post-install
+
+1. Configure the powerlevel10k theme:
+
+   #+begin_src sh
+   p10k configure
+   #+end_src
+
+2. Install the DejaVu Sans font.
+3. Restore =~/.password-store= and =~/notes/org= as needed.
 4. Import autojump history into zoxide once:
-#+begin_src
-$ zoxide import --from autojump ~/Library/autojump/autojump.txt
-#+end_src
+
+   #+begin_src sh
+   zoxide import --from autojump ~/Library/autojump/autojump.txt
+   #+end_src
