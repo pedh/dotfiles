@@ -108,10 +108,11 @@ cask "pluk-inc/tap/markdown-preview"
 brew "ghostscript"
 brew "poppler"
 
-# Shell history and navigation.
+# Shell history, navigation, and environment.
 brew "zoxide"
 brew "atuin"
 brew "fzf"
+brew "direnv"
 
 # Search and file discovery.
 brew "fd"

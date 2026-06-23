@@ -1,5 +1,11 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+;;; Identity
+
+(setq user-mail-address "hcn518@gmail.com")
+
+;;; Appearance
+
 (setq
   doom-theme 'doom-zenburn
   doom-font (font-spec :family "Monaco Nerd Font Mono" :size 14)
@@ -8,7 +14,6 @@
   doom-symbol-font (font-spec :family "Monaco Nerd Font Mono" :size 14)
   doom-serif-font (font-spec :family "DejaVu Serif" :size 14))
 
-;; Change the dashboard banner
 (defun my-dashboard-ascii-banner-fn ()
   (propertize
    (string-join
@@ -33,20 +38,19 @@
    'face '+dashboard-banner))
 (setq +dashboard-ascii-banner-fn #'my-dashboard-ascii-banner-fn)
 
-;; Line numbers
 (setq display-line-numbers-type t)
+(global-display-fill-column-indicator-mode)
 
-;; Org directory
+;;; Org and notes
+
 (setq org-directory "~/notes/org/")
 
-;; deft settings
 (after! deft
   (setq
     deft-directory "~/notes/"
     deft-extensions '("txt" "md" "org")
     deft-recursive t))
 
-;; org mode heading sizes in writeroom-mode
 (defun my-org-faces ()
   (if writeroom-mode
     (progn
@@ -63,7 +67,6 @@
       (set-face-attribute 'org-level-4 nil :height 1.0))))
 (add-hook 'writeroom-mode-hook #'my-org-faces)
 
-;; org-roam settings
 (after! org-roam
   (setq!
     org-roam-dailies-directory "journals/"
@@ -73,24 +76,36 @@
        (file+head "pages/${slug}.org" "#+title: ${title}\n")
        :unnarrowed t))))
 
-;; claude code settings
+;;; Coding tools
+
+(setq +terraform-runner "tofu")
+
+(after! python
+  (set-formatter! 'ruff :modes '(python-mode python-ts-mode)))
+
+(defconst my-homebrew-plantuml-jar
+  "/opt/homebrew/opt/plantuml/libexec/plantuml.jar")
+
+(after! plantuml-mode
+  (when (file-exists-p my-homebrew-plantuml-jar)
+    (setq plantuml-jar-path my-homebrew-plantuml-jar
+          plantuml-default-exec-mode 'jar)))
+
+(after! ob-plantuml
+  (when (file-exists-p my-homebrew-plantuml-jar)
+    (setq org-plantuml-jar-path my-homebrew-plantuml-jar)))
+
+;;; AI integrations
+
 (use-package! claude-code-ide
   :bind ("C-c C-'" . claude-code-ide-menu)
   :config
   (claude-code-ide-emacs-tools-setup))
 
-;; Frame sizing: maximized on launch, fullheight on subsequent frames
+;;; Window and keybindings
+
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
 
-;; C-. as mark (C-SPC is taken by macOS input source switching)
 (global-set-key (kbd "C-.") (kbd "C-SPC"))
-
-;; M-RET for dumb-jump (complement to LSP go-to-definition)
 (global-set-key (kbd "M-RET") 'dumb-jump-go)
-
-;; Show fill column indicator
-(global-display-fill-column-indicator-mode)
-
-;; User identification
-(setq user-mail-address "hcn518@gmail.com")

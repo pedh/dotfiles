@@ -123,7 +123,7 @@ brew "openclaw/tap/gogcli"
 # Infrastructure as code.
 brew "ansible"
 brew "opentofu"
-brew "terraform-ls"
+brew "tofu-ls"
 
 # Kubernetes development.
 brew "kubebuilder"
