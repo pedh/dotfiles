@@ -125,6 +125,9 @@ brew "ansible"
 brew "opentofu"
 brew "tofu-ls"
 
+# Container runtimes.
+brew "container"
+
 # Kubernetes development.
 brew "kubebuilder"
 
