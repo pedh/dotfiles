@@ -125,8 +125,11 @@ brew "ansible"
 brew "opentofu"
 brew "tofu-ls"
 
-# Container runtimes.
+# Container runtimes and registry tools.
 brew "container"
+brew "crane"
+brew "regclient"
+brew "skopeo"
 
 # Kubernetes development.
 brew "kubebuilder"
