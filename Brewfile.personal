@@ -52,6 +52,7 @@ cask "xquartz"
 # Network analysis GUIs.
 cask "charles"
 cask "wireshark-app"
+brew "sniffnet"
 
 # API development GUIs.
 cask "postman"
