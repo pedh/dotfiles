@@ -99,6 +99,7 @@ brew "cloc"
 # Database clients.
 brew "mycli"
 brew "pgcli"
+brew "litecli"
 
 # Cloud provider CLIs.
 brew "awscli"
