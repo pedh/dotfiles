@@ -63,7 +63,6 @@ if type zinit > /dev/null; then
         OMZL::key-bindings.zsh \
    atload"set_eza_ls_alias" \
         OMZL::theme-and-appearance.zsh \
-        OMZP::brew \
         OMZP::command-not-found \
    atload"restore_atuin_key_bindings" \
         OMZP::fzf \
