@@ -139,10 +139,6 @@ brew "kubebuilder"
 # Build introspection.
 brew "bear"
 
-# Kernel and platform toolchains.
-tap "gay-pizza/made", trusted: true
-brew "gay-pizza/made/mac-linux-kdk"
-
 # Font tools.
 brew "woff2"
 
