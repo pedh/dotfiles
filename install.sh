@@ -6,6 +6,8 @@ DOTFILES_PATH="$(git rev-parse --show-toplevel)"
 ASSUME_YES=false
 BREW_UPGRADE_LABEL="com.pedh.dotfiles.brew-upgrade"
 UPGRADE_FAILURES=()
+EMACS_PLUS_CASK="emacs-plus-app"
+EMACS_PLUS_ICON_NAME="dragon"
 
 INSTALL_MODULES=(brew git dircolors zshrc emacs vim nvim tmux gpg mbsync iterm2)
 UTILITY_MODULES=(brew-base brew-cleanup brew-upgrade brew-upgrade-scheduled brew-schedule brew-unschedule)
@@ -117,6 +119,36 @@ brew_bundle_with_profiles() {
 
 brew_bundle_check_with_profiles() {
   brew_bundle_with_profiles check --verbose --no-upgrade
+}
+
+install_emacs_plus_build_config() {
+  link_path "${DOTFILES_PATH}/.config/emacs-plus/build.yml" \
+    "${HOME}/.config/emacs-plus/build.yml"
+}
+
+emacs_plus_icon_is_applied() {
+  local app_info="/Applications/Emacs.app/Contents/Info.plist"
+  local icon_name
+
+  [[ -f "$app_info" ]] || return 1
+  icon_name="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIconName' "$app_info" 2>/dev/null || true)"
+  [[ "$icon_name" == "$EMACS_PLUS_ICON_NAME" ]]
+}
+
+refresh_emacs_plus_icon() {
+  brew list --cask "$EMACS_PLUS_CASK" > /dev/null 2>&1 || return 0
+
+  if emacs_plus_icon_is_applied; then
+    return 0
+  fi
+
+  echo "Reinstalling ${EMACS_PLUS_CASK} to apply its configured icon."
+  brew reinstall --cask "$EMACS_PLUS_CASK"
+
+  if ! emacs_plus_icon_is_applied; then
+    echo "Emacs+ icon configuration was not applied." >&2
+    return 1
+  fi
 }
 
 brewfile_entries() {
@@ -326,7 +358,9 @@ install_brew_base() {
   ensure_homebrew_path
 
   if [[ "$ASSUME_YES" == true ]]; then
+    install_emacs_plus_build_config
     brew bundle install --no-upgrade --file="${DOTFILES_PATH}/Brewfile"
+    refresh_emacs_plus_icon
     return
   fi
 
@@ -338,7 +372,9 @@ install_brew() {
   ensure_homebrew_path
 
   if [[ "$ASSUME_YES" == true ]]; then
+    install_emacs_plus_build_config
     brew_bundle_with_profiles install --no-upgrade
+    refresh_emacs_plus_icon
     return
   fi
 

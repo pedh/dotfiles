@@ -48,6 +48,7 @@ cask "stats"
 
 # Emacs.
 tap "d12frosted/emacs-plus", trusted: true
+# install.sh links .config/emacs-plus/build.yml before this cask is installed.
 cask "emacs-plus-app"
 
 # Terminal editors.

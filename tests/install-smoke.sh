@@ -86,8 +86,17 @@ test_zshrc_install_is_idempotent() {
   [[ "${count}" == "1" ]] || fail "zshrc source line count is ${count}, expected 1"
 }
 
+test_emacs_plus_icon_config_is_managed() {
+  local config="${ROOT}/.config/emacs-plus/build.yml"
+
+  [[ -f "${config}" ]] || fail "Emacs+ icon configuration is missing"
+  grep -qxF 'icon: dragon-plus' "${config}" ||
+    fail "Emacs+ icon configuration does not select dragon-plus"
+}
+
 test_fresh_home_links_offline_modules
 test_existing_real_target_is_backed_up_before_linking
 test_zshrc_install_is_idempotent
+test_emacs_plus_icon_config_is_managed
 
 printf 'ok - install smoke tests passed\n'
