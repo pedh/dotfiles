@@ -164,7 +164,6 @@ brew "ffmpegthumbnailer"
 brew "yt-dlp"
 
 # Mac App Store.
-mas "Keynote", id: 409183694
 mas "The Unarchiver", id: 425424353
 mas "Windows App", id: 1295203466
 
