@@ -14,7 +14,7 @@ cask "claude-code@latest"
 
 # AI desktop applications.
 cask "claude"
-cask "codex-app"
+cask "chatgpt"
 
 # Agent support tools.
 brew "summarize"
