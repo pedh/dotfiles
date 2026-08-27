@@ -157,6 +157,7 @@ brew "smartmontools"
 
 # Writing and spelling.
 brew "cspell"
+brew "aspell"
 
 # Database tools.
 brew "duckdb"
