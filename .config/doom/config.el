@@ -4,6 +4,12 @@
 
 (setq user-mail-address "hcn518@gmail.com")
 
+;;; Spell
+
+;; aspell picks its dictionary from LANG; under a Chinese locale it finds no
+;; dictionary and fails before printing its version line. Pin it to English.
+(setq ispell-dictionary "en_US")
+
 ;;; Appearance
 
 (setq
