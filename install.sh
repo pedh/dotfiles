@@ -639,7 +639,7 @@ install_brew_schedule() {
     echo "Brew upgrade schedule target:"
     echo "  Plist: $plist"
     echo "  Command: ${DOTFILES_PATH}/install.sh brew-upgrade-scheduled"
-    echo "  Schedule: Sunday 10:00"
+    echo "  Schedule: daily 13:00"
     echo "  Sudo: pinentry-mac GUI prompt only when sudo is needed"
     echo "Pass --yes to install or refresh the LaunchAgent."
     return 0
@@ -669,10 +669,8 @@ install_brew_schedule() {
   <string>${DOTFILES_PATH}</string>
   <key>StartCalendarInterval</key>
   <dict>
-    <key>Weekday</key>
-    <integer>0</integer>
     <key>Hour</key>
-    <integer>10</integer>
+    <integer>13</integer>
     <key>Minute</key>
     <integer>0</integer>
   </dict>

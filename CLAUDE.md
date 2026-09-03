@@ -37,4 +37,4 @@ shellcheck install.sh tests/install-smoke.sh
 - Run the smoke test as `bash tests/install-smoke.sh`; the file is tracked non-executable.
 - `brew` combines `Brewfile` plus every `Brewfile.*` except `Brewfile.lock.json`.
 - `brew-upgrade` previews without `--yes`; with `--yes` it also upgrades managed Go, npm, uv, Krew, and VSCode/Cursor entries.
-- Scheduled brew upgrade installs a LaunchAgent for Sunday 10:00 and uses `pinentry-mac` only when sudo is needed.
+- Scheduled brew upgrade installs a LaunchAgent for daily 13:00 and uses `pinentry-mac` only when sudo is needed.

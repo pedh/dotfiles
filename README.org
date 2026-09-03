@@ -72,7 +72,7 @@ Preview and apply managed upgrades. The upgrade command also handles managed Go 
 ./install.sh brew-upgrade --yes
 #+end_src
 
-Install or remove the weekly macOS LaunchAgent for scheduled upgrades:
+Install or remove the daily macOS LaunchAgent for scheduled upgrades:
 
 #+begin_src sh
 ./install.sh brew-schedule
