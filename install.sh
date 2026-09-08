@@ -576,7 +576,12 @@ notify_brew_upgrade() {
 
   if type -p terminal-notifier > /dev/null; then
     notifier="$(type -p terminal-notifier)"
-    "$notifier" -title "dotfiles brew-upgrade" -message "$message"
+    # terminal-notifier blocks forever when notifications cannot be delivered
+    # (VNC/headless sessions), which hangs the whole scheduled job after brew
+    # has finished. macOS ships no timeout(1), so bound it with perl's alarm.
+    # A failed notification must not change the job's exit status either.
+    perl -e 'alarm shift; exec @ARGV' 10 "$notifier" \
+      -title "dotfiles brew-upgrade" -message "$message" >/dev/null 2>&1 || true
   fi
 }
 
