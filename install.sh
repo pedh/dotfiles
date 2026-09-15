@@ -604,6 +604,7 @@ brew_upgrade_sudo_askpass() {
 install_brew_upgrade_sudo_askpass() {
   local helper
   local prefix
+  local staged
 
   prefix="$(homebrew_prefix)" || return 1
   if ! type -p pinentry-mac > /dev/null; then
@@ -614,12 +615,30 @@ install_brew_upgrade_sudo_askpass() {
 
   helper="$(brew_upgrade_sudo_askpass)"
   mkdir -p "$(dirname "$helper")"
-  cat > "$helper" <<EOF
+
+  # The helper is installed read-only, so a rerun cannot truncate it in place.
+  # Stage it beside the target and rename over it: rename(2) needs write access
+  # to the directory only. The caller tests our status, so errexit is off here
+  # and each step has to report its own failure.
+  staged="$(mktemp "${helper}.XXXXXX")" || return 1
+  if ! cat > "$staged" <<EOF
 #!/bin/sh
 PATH='${prefix}/bin:/usr/bin:/bin'
 printf "%s\n" "OPTION allow-external-cache" "SETOK OK" "SETCANCEL Cancel" "SETDESC dotfiles brew-upgrade needs your admin password to complete cask upgrades" "SETPROMPT Enter Password:" "SETTITLE dotfiles brew-upgrade Password Request" "GETPIN" | pinentry-mac --no-global-grab --timeout 60 | /usr/bin/awk '/^D / {print substr(\$0, index(\$0, \$2))}'
 EOF
-  chmod 0555 "$helper"
+  then
+    rm -f "$staged"
+    echo "Failed to write ${helper}" >&2
+    return 1
+  fi
+
+  chmod 0555 "$staged"
+  if ! mv -f "$staged" "$helper"; then
+    rm -f "$staged"
+    echo "Failed to install ${helper}" >&2
+    return 1
+  fi
+
   printf '%s\n' "$helper"
 }
 
