@@ -815,6 +815,7 @@ install_gpg() {
   link_path "${DOTFILES_PATH}/.gnupg/gpg.conf" "${HOME}/.gnupg/gpg.conf"
   link_path "${DOTFILES_PATH}/.gnupg/gpg-agent.conf" "${HOME}/.gnupg/gpg-agent.conf"
   link_path "${DOTFILES_PATH}/.gnupg/pinentry-auto" "${HOME}/.gnupg/pinentry-auto"
+  link_path "${DOTFILES_PATH}/.gnupg/git-gpg" "${HOME}/.gnupg/git-gpg"
 }
 
 install_mbsync() {

@@ -57,6 +57,7 @@ test_fresh_home_links_offline_modules() {
   assert_symlink_to "${home}/.gnupg/gpg.conf" "${ROOT}/.gnupg/gpg.conf"
   assert_symlink_to "${home}/.gnupg/gpg-agent.conf" "${ROOT}/.gnupg/gpg-agent.conf"
   assert_symlink_to "${home}/.gnupg/pinentry-auto" "${ROOT}/.gnupg/pinentry-auto"
+  assert_symlink_to "${home}/.gnupg/git-gpg" "${ROOT}/.gnupg/git-gpg"
   grep -qxF 'source ~/.dotfiles/.zshrc' "${home}/.zshrc" ||
     fail "zshrc source line missing"
 }

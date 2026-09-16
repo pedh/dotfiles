@@ -13,7 +13,7 @@
 	required = true
 	smudge = git-lfs smudge -- %f
 [gpg]
-	program = gpg
+	program = ~/.gnupg/git-gpg
 [interactive]
 	diffFilter = delta --color-only
 [merge]
