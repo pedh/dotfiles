@@ -287,5 +287,4 @@ krew "view-allocations"
 krew "view-secret"
 
 # Remote agent clients.
-cask "cc-pocket"
-npm "@ccpocket/bridge"
+cask "paseo"
