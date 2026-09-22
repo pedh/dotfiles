@@ -54,18 +54,20 @@ set_eza_ls_alias() {
     fi
 }
 
-restore_atuin_key_bindings() {
-    (( ${+widgets[atuin-search]} )) || return 0
-    bindkey -M emacs '^r' atuin-search
-    bindkey -M viins '^r' atuin-search-viins
-    bindkey -M vicmd '/' atuin-search
-    bindkey -M emacs '^[[A' atuin-up-search
-    bindkey -M viins '^[[A' atuin-up-search-viins
-    bindkey -M vicmd '^[[A' atuin-up-search-vicmd
-    bindkey -M emacs '^[OA' atuin-up-search
-    bindkey -M viins '^[OA' atuin-up-search-viins
-    bindkey -M vicmd '^[OA' atuin-up-search-vicmd
-    bindkey -M vicmd 'k' atuin-up-search-vicmd
+# ↑/↓ walk history restricted to the prefix already typed; Ctrl-R is fzf's. atuin
+# keeps recording everything and is still reachable on demand via `hh`.
+restore_native_history_key_bindings() {
+    autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+    zle -N up-line-or-beginning-search
+    zle -N down-line-or-beginning-search
+    bindkey -M emacs '^[[A' up-line-or-beginning-search
+    bindkey -M emacs '^[OA' up-line-or-beginning-search
+    bindkey -M emacs '^[[B' down-line-or-beginning-search
+    bindkey -M emacs '^[OB' down-line-or-beginning-search
+
+    if (( ! ${+widgets[fzf-history-widget]} )) && [[ -r "${HOMEBREW_PREFIX}/opt/fzf/shell/key-bindings.zsh" ]]; then
+        source "${HOMEBREW_PREFIX}/opt/fzf/shell/key-bindings.zsh"
+    fi
 }
 
 # ohmyzsh libraries and plugins
@@ -73,12 +75,12 @@ if type zinit > /dev/null; then
   zinit wait lucid for \
         OMZL::completion.zsh \
         OMZL::directories.zsh \
-   atload"restore_atuin_key_bindings" \
+   atload"restore_native_history_key_bindings" \
         OMZL::key-bindings.zsh \
    atload"set_eza_ls_alias" \
         OMZL::theme-and-appearance.zsh \
         OMZP::command-not-found \
-   atload"restore_atuin_key_bindings" \
+   atload"restore_native_history_key_bindings" \
         OMZP::fzf \
         OMZP::git \
    atload"set_eza_ls_alias" \
@@ -92,8 +94,18 @@ if type zoxide > /dev/null; then
 fi
 
 if type atuin > /dev/null; then
-    source <(atuin init zsh)
-    restore_atuin_key_bindings
+    # atuin keeps recording history and stays available as `hh`; it just no longer
+    # owns ↑ (it turned prefix-walking into a fuzzy TUI), ^r (fzf's widget is the
+    # one that feels native), or ? (newer atuin binds that to an AI prompt).
+    # --disable-ai is newer than the other two flags, so retry without it rather
+    # than sourcing an empty init script.
+    atuin_init=$(atuin init zsh --disable-up-arrow --disable-ctrl-r --disable-ai 2>/dev/null)
+    if [[ -z "$atuin_init" ]]; then
+        atuin_init=$(atuin init zsh --disable-up-arrow --disable-ctrl-r)
+    fi
+    eval "$atuin_init"
+    unset atuin_init
+    restore_native_history_key_bindings
 fi
 
 # provide a simple prompt till the theme loads
