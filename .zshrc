@@ -11,6 +11,20 @@ if [[ -r "${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh" ]]; then
   source "${HOMEBREW_PREFIX}/opt/zinit/zinit.zsh"
 fi
 
+# zicompinit loads the dump with compinit -C (ZINIT[COMPINIT_OPTS]), and -C means
+# never validate the dump against the filesystem. So a dump older than the last
+# `brew upgrade` / zinit data-dir migration keeps replaying registrations whose
+# completion file is gone; TAB then dies with
+#   (eval):1: _eza: function definition file not found
+# Drop a day-old dump so compinit rebuilds it, keeping the -C startup speed.
+prune_stale_zcompdump() {
+    local dump=${ZINIT[ZCOMPDUMP_PATH]:-$HOME/.zcompdump}
+    # Not `[[ -f $dump && $dump(#qN.mh+24) ]]`: the qualifier expands to nothing
+    # for a fresh dump and the condition then tests TRUE, pruning on every start.
+    [[ -n $(print -r -- "${dump}"(N.mh+24)) ]] && rm -f "${dump}"*(N)
+}
+prune_stale_zcompdump
+
 # set LS_COLORS for gnu ls
 if [[ -f ${HOME}/.LS_COLORS ]]; then
     source "${HOME}/.LS_COLORS"
