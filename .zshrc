@@ -65,8 +65,17 @@ restore_native_history_key_bindings() {
     bindkey -M emacs '^[[B' down-line-or-beginning-search
     bindkey -M emacs '^[OB' down-line-or-beginning-search
 
-    if (( ! ${+widgets[fzf-history-widget]} )) && [[ -r "${HOMEBREW_PREFIX}/opt/fzf/shell/key-bindings.zsh" ]]; then
-        source "${HOMEBREW_PREFIX}/opt/fzf/shell/key-bindings.zsh"
+    if (( ! ${+widgets[fzf-history-widget]} )); then
+        # Install layout differs: Homebrew keeps it under opt/fzf/shell, distro
+        # packages under a share/ tree, and a Linux box without brew falls back to
+        # HOMEBREW_PREFIX=/usr/local, which is wrong there.
+        local kb
+        for kb in "${HOMEBREW_PREFIX}/opt/fzf/shell/key-bindings.zsh" \
+                  "${HOMEBREW_PREFIX}/share/fzf/key-bindings.zsh" \
+                  /usr/share/fzf/shell/key-bindings.zsh \
+                  /usr/local/share/fzf/key-bindings.zsh; do
+            [[ -r "$kb" ]] && { source "$kb"; break }
+        done
     fi
 }
 
